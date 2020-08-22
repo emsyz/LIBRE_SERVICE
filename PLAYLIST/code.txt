@@ -1,0 +1,262 @@
+<!--- (c) poésies cendrées. / CENDRES.
+
+        - - - - - À PROPOS - - - - -
+        voici un code de playlist en libre service.
+        vous pouvez bien sûr modifier les chansons, tout
+        est expliqué dans un commentaire plus bas.
+
+        le code est libre d'utilisation mais merci de ne pas
+        vous en servir comme base pour un autre code ou de le modifier
+        plus que de raison. les éléments importants à la personnalisation
+        de la playlist se trouvent dans la balise "style" juste ci-dessous.
+
+        n'hésitez pas à me contacter en dm/ask
+        sur tumblr ou sur mon forum personnel au besoin !
+        https://poesiescendrees.tumblr.com/
+        https://test-renegade.kanak.fr/
+
+        (les commentaires en anglais arrive bientôt eheh)
+-->
+
+
+<html>
+<head>
+  <meta content="text/html;charset=UTF-8" http-equiv="Content-type" />
+  <link rel="stylesheet" type="text/css" href="https://codepen.io/ANESIDORA/pen/NWNbZyz.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Mulish:wght@300&family=Oswald&family=Playfair+Display&family=Rozha+One&display=swap" rel="stylesheet"/>
+  <style>
+  /* - - - - - COLORS & VARIABLES - - - - - */
+
+  .bp_poc{
+    /*titre des chansons (actuel + liste)*/
+    --background-important: #ADB69E;
+    --color-important: #4F5641;
+
+    /*boutons prev/play/next + fond de la liste*/
+    --background-light: #DDE1D7;
+    --border-light: #BAC1AE;
+
+    /*highlights : prev/play/next au survol et % de lecture*/
+    --background-highlight: #AEB6C8;
+    --border-highlight: #7785A4;
+    --color-highlight: #F0F2EE;
+
+    /*fond barre de lecture pas encore lue*/
+    --background-time: #DDE1D7;
+
+    /*texte auteurs*/
+    color: #26291F;
+    font-size: 9px;
+    line-height: 12px;
+
+    /*couleur boutons*/
+    --color-af: #26291F;
+
+    /*couleur titre en cours*/
+    --color-afu: #26291F;
+
+
+
+
+    /*largeurs*/
+    --width-global: 300px; /*de la playlist entière*/
+    --width-label: 50px; /*du label % de lecture (au survol)*/
+
+    /*hauteurs*/
+    --height-image: 200px; /*de l'image*/
+    --height-buttons: 20px; /*des boutons*/
+    --height-time: 4px; /*de la barre de lecture*/
+    --height-label: 15px; /*du label * de lecture (au survol)*/
+    --height-list: 215px; /*de la liste*/
+
+    --border-width-song: 2px; /*épaisseur bordure titres dans la liste*/
+
+    /*de manière générale dans le code:
+    petites marges --margin-sm
+    marges moyennes --margin-mo
+    grandes marges --margin-bg
+    je vous déconseilel d'y toucher
+    à moins d'en avoir absolument besoin
+    car cela risque d'impacter tout le code*/
+    --margin-sm: 4px;
+    --margin-mo: 10px;
+    --margin-bg: 25px;
+
+
+
+
+
+
+    }</style>
+</head>
+
+
+<body>
+<div class="bp_poc">
+
+<!--------------- PLAYER --------------->
+<audio id="player_poc">
+  your browser does not support the 'audio' element.
+</audio>
+
+
+<div id="image_player_poc" style="/*URL IMAGE PAR DÉFAUT (normalement pas montrée mais on sait jamais)*/background: url(https://i.pinimg.com/564x/84/ea/7a/84ea7adf3e06edc2a7a16c5eff24afef.jpg) 50% 50% / cover;">
+</div>
+
+
+<div id="title_author_poc">
+the songs coud not be loaded.
+</div>
+
+
+<af><div class="container_buttons_poc">
+  <button onclick="play_previous()">previous</button>
+  <button id="play_pause_poc" onclick="play_pause()">play</button>
+  <button onclick="play_next()">next</button>
+</div></af>
+
+
+<div class="container_time_poc">
+  <div class="time_poc" id="time_aud_poc">
+    <div id="fill_poc"></div>
+  </div>
+
+  <div class="label_poc">
+    <af><table><tr><td id="td_label_poc">0%</td></tr></table></af>
+  </div>
+</div>
+
+
+
+
+<!--------------- LISTE CHANSONS ---------------
+
+        - - - - - À PROPOS
+        code réalisé par poésies cendrées, merci de ne pas
+        modifier au point d'en changer complètement la structure
+        ou de vous en servir comme base. le crédit est
+        intégré et ne peut être retiré.
+        n'hésitez pas à me contacter sur tumblr ou sur mon forum personnel
+        en cas de besoin <img src="https://2img.net/i/fa/i/smiles/icon_smile.gif" alt="Smile" longdesc="2" />
+
+
+        - - - - - PRÉCISIONS POUR MODIFIER LA PLAYLIST
+        pour chaque chanson ajoutée, merci de faire attention
+        à ne pas laisser d'espace entre la fin de la balise et
+        et l'information affichée, surtout pour la source et l'image
+        car cela risque de tout faire planter. une erreur peut
+        potentiellement faire bugger l'ensemble du code.
+
+        le nom de class est plutôt explicite sur l'information
+        à ajouter, il ne devrait normalement pas y avoir de problème.
+        le champ "source" est le fichier audio de la musique.
+        vous pouvez l'obtenir en improtant un fichier .mp3 par dropbox.
+        une fois cela fait, le titre figure dans votre liste de fichiers
+        partagés et vous pouvez sélectionner l'option "partager" et copier le lien
+        que cela vous génère (semblable à ceux de la playlist par défaut).
+
+        ATTENTION ! vous obtenez un lien de type :
+        https://www.dropbox.com/s/etc.
+        il faut remplacer le "www" par "dl" de sorte à avoir:
+        https://dl.dropbox.com/s/etc.
+
+
+
+-->
+
+<div class="container_list_poc">
+  <scroll>
+
+    <!----- DÉBUT CHANSON ----->
+    <button class="info_song_poc" id="b1" onclick="change_song(this.id)">
+      <af><div class="title_song_poc">mr/mme</div></af>
+      <pl><div class="author_song_poc">loïc nottet</div></pl>
+      <div class="source_song_poc">https://dl.dropbox.com/s/r9fvbcnm8hgxu8s/mrmme.mp3?dl=0</div>
+      <div class="image_song_poc">https://i.pinimg.com/564x/af/a0/f7/afa0f7f5e77c45173526656eddff991d.jpg</div>
+    </button>
+    <!----- FIN CHANSON ----->
+
+
+    <!----- DÉBUT CHANSON ----->
+    <button class="info_song_poc" id="b2" onclick="change_song(this.id)">
+      <af><div class="title_song_poc">idk if im even awake anymore</div></af>
+      <pl><div class="author_song_poc">troye sivan</div></pl>
+      <div class="source_song_poc">https://dl.dropbox.com/s/ss2v0frtou2cfne/idk-if-im-even-awake-anymore.mp3?dl=0</div>
+      <div class="image_song_poc">https://i.pinimg.com/564x/49/78/51/4978515ca03a5de44b75e4079e0797b8.jpg</div>
+    </button>
+    <!----- FIN CHANSON ----->
+
+
+    <!----- DÉBUT CHANSON ----->
+    <button class="info_song_poc" id="b3" onclick="change_song(this.id)">
+      <af><div class="title_song_poc">neon gravestones</div></af>
+      <pl><div class="author_song_poc">twenty one pilots</div></pl>
+      <div class="source_song_poc">https://dl.dropbox.com/s/k5ymtfpajo301xi/twenty-one-pilots-neon-gravestones-official-audio.mp3?dl=0</div>
+      <div class="image_song_poc">https://i.pinimg.com/564x/da/79/7d/da797dbe2dfb0746970accfe1e99654a.jpg</div>
+    </button>
+        <!----- FIN CHANSON ----->
+
+
+    <!----- DÉBUT CHANSON ----->
+    <button class="info_song_poc" id="b4" onclick="change_song(this.id)">
+      <af><div class="title_song_poc">come out and play</div></af>
+      <pl><div class="author_song_poc">billie eilish</div></pl>
+      <div class="source_song_poc">https://dl.dropbox.com/s/3dnv70eoa6mum5v/billie-eilish-come-out-and-play-audio.mp3?dl=0</div>
+      <div class="image_song_poc">https://i.pinimg.com/564x/60/d1/6e/60d16e7c067111026a114d7717afb85d.jpg</div>
+    </button>
+    <!----- FIN CHANSON ----->
+
+
+    <!----- DÉBUT CHANSON ----->
+    <button class="info_song_poc" id="b5" onclick="change_song(this.id)">
+      <af><div class="title_song_poc">i'm not a saint</div></af>
+      <pl><div class="author_song_poc">billy raffoul</div></pl>
+      <div class="source_song_poc">https://dl.dropbox.com/s/mqk5sgotvclg1qv/billy-raffoul-im-not-a-saint-official-audio.mp3?dl=0</div>
+      <div class="image_song_poc">https://i.pinimg.com/564x/d0/38/eb/d038eb0ec89ddd56c6e84dd186da3db4.jpg</div>
+    </button>
+    <!----- FIN CHANSON ----->
+
+
+    <!----- DÉBUT CHANSON ----->
+    <button class="info_song_poc" id="b6" onclick="change_song(this.id)">
+      <af><div class="title_song_poc">hot girl bummer</div></af>
+      <pl><div class="author_song_poc">blackbear</div></pl>
+      <div class="source_song_poc">https://dl.dropbox.com/s/vlzq92qvy0f8ubx/blackbear-hot-girl-bummer-low-budget-video.mp3?dl=0</div>
+      <div class="image_song_poc">https://i.pinimg.com/564x/6c/de/1c/6cde1c1f4912d91fec4672514597c9be.jpg</div>
+    </button>
+    <!----- FIN CHANSON ----->
+
+
+    <!----- DÉBUT CHANSON ----->
+    <button class="info_song_poc" id="b7" onclick="change_song(this.id)">
+      <af><div class="title_song_poc">5:3666</div></af>
+      <pl><div class="author_song_poc">machine gun kelly</div></pl>
+      <div class="source_song_poc">https://dl.dropbox.com/s/2wxg8pqcy4jwkpt/machine-gun-kelly-53666-feat-phem-official-audio.mp3?dl=0</div>
+      <div class="image_song_poc">https://i.pinimg.com/564x/f8/15/d2/f815d2eb6aa81f9d0f420a999acd396b.jpg</div>
+    </button>
+        <!----- FIN CHANSON ----->
+
+
+    <!----- DÉBUT CHANSON ----->
+    <button class="info_song_poc" id="b8" onclick="change_song(this.id)">
+      <af><div class="title_song_poc">soldi</div></af>
+      <pl><div class="author_song_poc">mahmood</div></pl>
+      <div class="source_song_poc">https://dl.dropbox.com/s/9bc0n95fd6rre1p/mahmood-soldi-prod-dardust-charlie-charles.mp3?dl=0</div>
+      <div class="image_song_poc">https://i.pinimg.com/564x/4e/26/e6/4e26e6843b87a14432f2187baf1538f8.jpg</div>
+    </button>
+    <!----- FIN CHANSON ----->
+
+
+
+  </scroll>
+</div>
+
+</div>
+
+
+<script type="text/javascript" src="https://codepen.io/ANESIDORA/pen/NWNbZyz.js"></script>
+
+
+
+</body>
+</html>
