@@ -100,10 +100,10 @@
 <!-------------------- POSTS -------------------->
 
 <meta name="color:background posts" content="#f9f9f9">
+<meta name="color:text color posts" content="#323232">
 <meta name="color:border posts" content="#eeeeee">
 <meta name="color:border left quote" content="#e4e4e4">
 
-<meta name="color:text color posts" content="#323232">
 <meta name="color:color links post" content="323232">
 <meta name="color:shadow links post" content="cfd4de">
 
@@ -112,6 +112,10 @@
 
 <meta name="color:color repost author post" content="323232">
 <meta name="color:shadow repost author post" content="e2ddd4">
+
+<meta name="color:background notes in permapage" content="#f9f9f9">
+<meta name="color:text color notes in permapage" content="#323232">
+<meta name="color:border notes in permapage" content="#eeeeee">
 
 <meta name="color:background tags" content="#d7dbe2">
 <meta name="color:text color tags" content="#f9f9f9">
@@ -872,7 +876,11 @@ pal{ display: flex; flex-direction: column; width: 20px; height: 500px; position
             /* - - - - - PERMALINK - - - - - */
 
             .notes_post{
+                background: {color:background notes in permapage};
                 margin-top: var(--bg);
+                border-color: {color:border notes in permapage};
+
+                color: {color:text color notes in permapage};
             }
 
             .notes li{
