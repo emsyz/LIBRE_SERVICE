@@ -1,0 +1,264 @@
+#i_logo {
+  width: 850px;
+}
+
+.title_cendres, .title_cendres *, .admin_cendres, .admin_cendres *, .bp_cendres, .bp_cendres * {
+  box-sizing: border-box;
+}
+
+.title_cendres, .admin_cendres, .bp_cendres {
+  width: 850px; /*à modifier ici, largeur totale du profil*/
+  margin: auto;
+  margin-bottom: var(--grid-gap);
+
+  /*COULEURS*/
+  --background-color: #FFF; /*fond du forum*/
+
+  --background-left: #F3F1ED; /*fond cadre gauche*/
+
+  --color-title: #483526; /*couleur prénom nom du membre*/
+  --highlight-title: #D6BFA7; /*"highlights" du prénom nom du membre + fond zone admin*/
+
+  --color-admin: #FFFF; /*couleur texte zone admin*/
+
+  --background-title2: #F7C47D; /*fond du petit titre dans le cadre gauche*/
+  --color-title2: #FFFFFF; /*couleur du petit titre*/
+
+  --color-small: #483526; /*couleur des intitulés des champs*/
+
+  --border-ava: var(--highlight-title); /*couleur de la bordure de l'avatar, pour l'instant la même que les highlights du prénom nom du membre*/
+
+  /*les 3 couleurs de dégradé des liens/informations à droite*/
+  --color-right1: #FADA7A;
+  --color-right2: #F7C47D;
+  --color-right3: #C49A7B;
+
+
+
+
+  /*HAUTEURS*/
+  --total-height: 320px; /*hauteur totale du profil*/
+  --width-left: 500px; /*largeur du bloc de gauche, la droite s'adapte en conséquence*/
+  --width-contact: 30px; /*largeur des icones du champ de contact du membre, à adapter potentiellement*/
+
+
+
+
+  /*ESPACEMENTS, MARGES
+    à ne pas toucher, de préférence, ou alors s'assurer que tout fonctionne encore bien*/
+  --grid-gap: 10px; /*marges entre les différents gros "blocs" de la fiche*/
+  --small-padding: 10px; /*petites marges*/
+  --middle-padding: 30px; /*grandes marges*/
+}
+
+/*FONTS*/
+
+/*prénom nom du membre*/
+.title_cendres {
+  padding: 0 var(--middle-padding) var(--small-padding);
+  border-bottom: 1px solid var(--highlight-title);
+
+  color: var(--color-title);
+  font-family: 'Rozha One';
+  font-size: 27px;
+  line-height: 27px;
+  font-style: normal;
+  font-weight: normal;
+  text-shadow: 2px 0 var(--highlight-title);
+  text-align: left;
+}
+
+/*petit titre dans la partie gauche*/
+.title_infos_cendres span.vv {
+  display: inline-block;
+  background: var(--background-title2);
+  padding: 5px var(--small-padding);
+  border-right: 10px solid var(--background-left);
+  position: relative;
+  z-index: 100;
+
+  color: var(--color-title2);
+  font-size: 12px;
+}
+
+/*textes à droite*/
+.bp_cendres span.xx {
+  color: var(--border);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: bold;
+}
+
+/*à remplacer par des "petites" polices de votre forum*/
+.admin_cendres span.cc, .bp_cendres span.cc {
+  color: var(--color-small);
+  font-family: 'Rozha One';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: lowercase;
+}
+
+/*RESTE
+  NE PAS TOUCHER !!!!!!
+  contacter cendres. sur brocart ou poesiescendrees sur tumblr
+  si des problèmes surviennent*/
+
+scroll{
+    flex: 1 1 auto;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+scroll::-webkit-scrollbar{
+  width: 0px;
+}
+
+.admin_cendres {
+  background: var(--highlight-title);
+  padding: var(--small-padding) var(--middle-padding);
+
+  color: var(--color-admin);
+}
+
+.bp_cendres {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  --width-ava: calc(0.625 * (var(--total-height) - var(--middle-padding) - var(--middle-padding)));
+}
+
+.bp_cendres > * {
+  height: var(--total-height);
+}
+
+.left_cendres {
+  flex: 0 0 auto;
+  display: grid;
+  width: var(--width-left);
+  background: var(--background-left);
+  margin-right: var(--grid-gap);
+  padding: var(--middle-padding);
+
+  grid-template:
+    "avatar . contact . title" auto
+    "avatar . contact . blank" var(--small-padding)
+    "avatar . contact . infos" 1fr
+    / var(--width-ava) var(--middle-padding) var(--width-contact) var(--middle-padding) 1fr;
+}
+
+.left_cendres > * {
+  overflow: hidden;
+}
+
+.avatar_cendres {
+  grid-area: avatar;
+  padding: var(--small-padding);
+  background: var(--border-ava);
+}
+
+.avatar_cendres img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact_cendres {
+  grid-area: contact;
+}
+
+.contact_cendres img {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--small-padding);
+}
+
+.infos_cendres {
+  grid-area: infos;
+  overflow: auto;
+}
+
+.infos_cendres div {
+  display: inline;
+}
+
+.title_infos_cendres {
+  grid-area: title;
+  position: relative;
+}
+
+.title_infos_cendres::before {
+  display: block;
+  content: ' ';
+  width: 100%;
+  height: 0;
+  border-bottom: 1px solid var(--background-title2);
+  position: absolute;
+  top: 50%;
+}
+
+.right_cendres {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bp_cendres line {
+  display: block;
+  position: relative;
+}
+
+.bp_cendres line::after {
+  display: block;
+  content: ' ';
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+.bp_cendres line:nth-of-type(3n) {
+  --border: var(--color-right3);
+}
+
+.bp_cendres line:nth-of-type(3n + 1) {
+  --border: var(--color-right1);
+}
+
+.bp_cendres line:nth-of-type(3n + 2) {
+  --border: var(--color-right2);
+}
+
+.bp_cendres line.left {
+  text-align: left;
+}
+
+.bp_cendres line.right {
+  text-align: right;
+}
+
+.bp_cendres span.xx a {
+  color: inherit;
+  border: 0;
+  text-decoration: none;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.bp_cendres span.xx {
+  background: var(--background-color);
+  position: relative;
+  z-index: 100;
+}
+
+.bp_cendres line.left span.xx {
+  padding-right: var(--grid-gap);
+}
+
+.bp_cendres line.right span.xx {
+  padding-left: var(--grid-gap);
+}
