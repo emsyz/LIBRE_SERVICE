@@ -1,0 +1,477 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Mulish:wght@200&family=Oswald&family=Playfair+Display&family=Rozha+One&display=swap" rel="stylesheet">
+        <pal><p></p><p></p><p></p><p></p><p class="pp"></p><p></p><p class="pp"></p><p></p><p></p><p class="pp"></p><p></p><p></p><p></p><p></p></pal>
+        <style>body{padding: 100px;} section{height: 200px; overflow: auto;}</style>
+
+
+        <!-------------------- IMPORT CSS -------------------->
+        <link href="overall.css" rel="stylesheet">
+        <link href="main.css" rel="stylesheet">
+
+        <!-------------------- IMPORT SCRIPTS -------------------->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    </head>
+
+    <body>
+        <!--
+            BASIC : each $(button:nth-of-type) of $('.TI1') toggles
+            the child:nth-of-type of $('.test1')
+        -->
+        <header class="first center-align">
+            <h2>— TOGGLE PACKAGE BY POESIESCENDREES —</h2>
+            <ro class="h3"> . go to <a href="#top" class="noborder nocolor">github</a> ;; <a href="#top" class="noborder nocolor">poesiescendrees tumblr</a> . </ro><br><br>
+
+
+            <nav class="center-align toggle_inside" toggling="main">
+                <button>english</button> —
+
+                <button>french</button> —
+
+                <button>examples</button>
+            </nav>
+        </header>
+
+        <main>
+            <div id="english">
+                <qt class="entete">
+                    <rou>before use</rou><br>
+                    <i>(explanations are already in comments in first lines
+                    of the js package but they'll be more readable here)</i>
+                </qt>
+                <div class="simple light">
+                    This package presents 4 ways to hide, display and toggle elements with an attached trigger on your platform.<br>
+
+
+                    <ul>
+                        <li><a href="#one_two_three">a button hidding an element or a set of elements</a></li>
+                        <li><a href="#one_two_three">a button displaying an element or a set of elements</a></li>
+                        <li><a href="#one_two_three">a button toggling an element or a set of elements</a> <i>(hides the element if displayed, else hide it)</i></li>
+                        <li><a href="#four">a system of "tabs"</a> : several of buttons, each one displaying a corresponding tab.</li>
+                    </ul>
+                    <br>
+
+                    There's no skill in Javascript needed for you to use the features but it will be much easier if you're comfortable with HTML & CSS. You can use this package on your tumblr, as the administrator of your forum (NOT as a member since you won't be able to add JS) or in any HTML page actually, like this one for example.<br><br>
+
+                    You don't have to credit me on your platform but it would be very appreciated :) And please like/repost the <a href="#top">post on my tumblr</a> if you use this, thank you !
+                </div>
+
+
+                <qt class="entete">
+                    <rou>how to use the package</rou><br>
+                </qt>
+                <div class="simple light">
+                    <ro>(1) import the JQuery Library</ro>
+                    It is automatically done on forumactif but else, you may have to add this to your code (in the <cd> < head > </cd> tag or just before the closing tag <cd> < /body > </cd>) :
+                    <textarea><script src="https://code.jquery.com/jquery-3.5.1.min.js"></script></textarea>
+                </div>
+                <div class="simple light">
+                    <ro>(2) import this JS library</ro>
+                    Very similarly, you copy/paste the following link <b>at the end of the body</b> (just before the closing tag <cd> < /body > </cd>) :
+                    <textarea>XXXXXX</textarea>
+                </div>
+                <div class="simple light">
+                    And there it is ! The functions are now available. You can use them as many times as you want in the same page. Each time, you have <v>2 sets</v> of elements : the <c>TRIGGER(S)</c> that, when clicked, display/hide/toggle their <c>TARGET(s)</c>.<br><br>
+
+                    Triggers and targets can be of any type <cd>(div, a, span, button, p, custom elements...)</cd> but the triggers need to be recognized with a class specific to the feature used. Moreover, they can be placed anywhere you want (sometimes within one another).
+                </div>
+
+
+                <qt class="entete">
+                    <rou>features & classes of triggers</rou>
+                </qt>
+                <div class="simple">
+                    <ro>note</ro>When talking about a trigger, it may content the attributes <cd>target="something"</cd>, <cd>toggling="something"</cd>, <cd>children="something"</cd> where <u>something</u> is the tag name. You need to add <cd>.</cd> for a class or <cd>#</cd> for an id. For example :
+                    <textarea style="height: 250px;">
+<a target=".something">...</a>     --> targets a class ".something"
+<span class="something">...</span> --> targeted
+<span>...</span>                   --> not targeted
+
+
+<a target="#hey">...</a>           --> targets an id "hey"
+<p id="hey">...</p>                --> targeted
+
+
+<a target="p.uno">...</a>          --> targets a "p" with class "uno"
+<p class="uno">...</p>             --> targeted
+<p>...</p>                         --> not targeted (no "uno" class)
+<span class="uno">...</san>        --> not targeted (not a "p")
+</textarea>
+                </div>
+                <div class="simple light">
+                    <a name="one_two_three"><ro style="font-size: 1.5em;">(1,2,3) class="toggle/hide/display"</ro></a> <i>The trigger hides/display/toggles the target.</i>
+                    <br><br>(take either <u>toggle</u>, <u>hide</u> or <u>display</u>, not all of them at the same time)
+                    <textarea>
+<element class="toggle/hide/display" target="target">text</element>
+<target>this element is displayed, hidden or toggled</target></textarea>
+
+
+
+
+                    <div class="simple h1">
+                        <ro class="toggle spoiler" target="#ex123">example</ro>
+
+                        <div id="ex123" class="hidden">
+                            <button class="toggle" target="#ex1_1">click on me to toggle the secret message</button> <div class="small dark hidden" id="ex1_1">ily <3</div><br><br>
+
+                            <ro>code</ro>
+                            <textarea>
+<button class="toggle" target="#secret">click on me to toggle the secret message</button> <div class="small dark hidden" id="secret">the secret message</div></textarea>
+
+                            <button class="hide" target="#ex1_2" id="ex1_2">i'll disappear when you'll click on me</button><br><br>
+
+                            <ro>code</ro>
+                            <textarea><button class="hide" target="#disappear" id="disappear">click on me to hide myself</button></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="simple light">
+                    <a name="four"><ro style="font-size: 1.5em;">(4) class="toggle_inside"</ro></a> <i>list of tabs with their buttons</i><br>
+                    At first, all children of the <cd>parentTarget</cd> are hidden ; triggering the trigger number <cd>x</cd> will display the child number <cd>x</cd> of the <cd>parentTarget</cd><br><br>
+
+                    <ro>note</ro> that for the trigger parent, the attribute <cd>children="xx"</cd> is not necessary : if indicated, it selects the elements specified that are within the parent, otherwise it automaticaly selects all its children like this :
+                    <textarea style="height: 220px;">
+<element class="toggle_inside" toggling="parentTarget">
+    <trigger>first trigger</trigger>
+    ...
+    <trigger>Nth trigger</trigger>
+</element>
+
+<parentTarget>
+    <element>toggled with first trigger</element>
+    ...
+    <element>toggled with Nth trigger</element>
+</parentTarget></textarea> And with <cd>children=""</cd> :
+
+
+<textarea style="height: 220px;">
+<element class="toggle_inside" toggling="parentTarget" children="trigger">
+    <trigger>first trigger</trigger>
+    ...
+    <trigger>Nth trigger</trigger>
+</element>
+
+<parentTarget>
+    <element>toggled with first trigger</element>
+    ...
+    <element>toggled with Nth trigger</element>
+</parentTarget>
+</textarea>
+
+                    <div class="simple h1">
+                        <ro class="toggle spoiler" target="#ex4">example</ro>
+
+                        <div id="ex4" class="hidden">
+                            <div class="toggle_inside" toggling="#ex2_1">
+                                <a>one</a> — <a>two</a> — <a>three</a>
+                            </div>
+                            <div id="ex2_1">
+                                <div class="simple dark">your first</div>
+                                <div class="simple h2">your second</div>
+                                <div class="simple h3">your third</div>
+                            </div>
+
+                            <ro>code</ro>
+                            <textarea style="height: 150px;">
+<div class="toggle_inside" toggling="#list_tabs">
+    <a>one</a> — <a>two</a> — <a>three</a>
+</div>
+<div id="list_tabs">
+    <div class="simple dark">your first</div>
+    <div class="simple h2">your second</div>
+    <div class="simple h3">your third</div>
+</div></textarea>
+
+                            <div class="simple dark toggle_inside" toggling="#ex2_2" children=".links">
+                                And guess what ! It is also possible to put the target parent within the trigger parent, as long as you indicate <cd>childern="name_of_triggers"</cd> ! List of tabs : <a class="links">first tab</a>
+                                <a class="links">second tab</a>
+
+                                <div id="ex2_2">
+                                    <div class="simple h1">first</div>
+                                    <div class="simple h4">second</div>
+                                </div>
+                            </div>
+
+                            <ro>code</ro>
+                            <textarea style="height: 220px;">
+<div class="simple dark toggle_inside" toggling="#ex2_2" children=".links">
+    And guess what ! It is also possible to put the target parent within the trigger parent, as long as you indicate <cd>childern="name_of_triggers"</cd> !
+    List of tabs : <a class="links">first tab</a>
+    <a class="links">second tab</a>
+
+    <div id="ex2_2">
+        <div class="simple h1">first</div>
+        <div class="simple h4">second</div>
+    </div>
+</div></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <div id="french">
+                <qt class="entete">
+                    <rou>avant utilisation</rou><br>
+                    <i>(explications fournies en commentaires au début du package js mais plus lisibles ici)</i>
+                </qt>
+                <div class="simple light">
+                    Le package présente 4 façons de cacher et afficher des éléments attachés à un trigger.<br>
+
+
+                    <ul>
+                        <li><a href="#one_two_three_fr">bouton cachant un ou plusieurs éléments</a></li>
+                        <li><a href="#one_two_three_fr">bouton affichant un ou plusieurs éléments</a></li>
+                        <li><a href="#one_two_three_fr">bouton cachant et affichant alternativement un ou plusieurs éléments</i></li>
+                        <li><a href="#fourfour_fr">un système "d'onglets"</a> : plusieurs boutons, chacun d'eux affichant un onglet correspondant.</li>
+                    </ul>
+                    <br>
+
+                    Il ne faut pas avoir de connaissances en Javascript pour utiliser ce package mais il sera beaucoup plus facile de le manipuler en étant à l'aise avec le HTML & le CSS. Vous pouvez l'utiliser sur votre Tumblr, sur un forum dont vous êtes administrateurice (et PAS en tant que membres sachant que vous n'aurez pas l'autorisation d'ajouter du JS), ou sur n'importe quelle page HTML en fait, comme cette dernière par exemple.<br><br>
+
+                    Vous ne devez pas me créditer sur votre plateforme mais si vous décidez de le faire, je vous en serez très reconnissante :) Et s'il-vous-plaît, merci d'aimer/reposter <a href="#top">le billet correspondant sur mon Tumblr</a> en cas d'utilisation, merci !
+                </div>
+
+
+                <qt class="entete">
+                    <rou>Comment utiliser</rou><br>
+                </qt>
+                <div class="simple light">
+                    <ro>(1) Importer la galerie JQuery</ro>
+                    Elle est incluse par défaut sur Forumactif mais sinon, vous aurez peut-être à ajouter le code suivant sur votre plateforme (dans le tag <cd> < head > </cd> ou juste avant le tag fermant le corps de page <cd> < /body > </cd>) :
+                    <textarea><script src="https://code.jquery.com/jquery-3.5.1.min.js"></script></textarea>
+                </div>
+                <div class="simple light">
+                    <ro>(2) Importer cette galerie JS</ro>
+                    De façon similaire, copiez/collez le lien suivant <b>à la fin du corps de page</b> (juste avant le tag fermant <cd> < /body > </cd>) :
+                    <textarea>XXXXXX</textarea>
+                </div>
+                <div class="simple light">
+                    Et voilà ! Les fonctions sont maintenant disponibles. Vous pouvez les utiliser autant que vous voulez sur la même page. À chaque fois, cela comporte <v>2 sets</v> d'éléments : les <c>"TRIGGER(S)"</c> qui, quand on clique dessus, affichent/cachent les <c>TARGET(s)</c>.<br><br>
+
+                    Triggers comme targets peuvent être de tous types <cd>(div, a, span, button, p, custom elements...)</cd> même si les triggers doivent contenir une class spécifique à la fonction utilisée. De plus, tous les éléments peuvent être placés où vous voulez, parfois même l'un à l'intérieur de l'autre.
+                </div>
+
+
+                <qt class="entete">
+                    <rou>fonctionnalités et class des triggers</rou>
+                </qt>
+                <div class="simple">
+                    <ro>note</ro> Quand on parle d'un trigger, ce dernier pourrait avoir un attribut <cd>target="something"</cd>, <cd>toggling="something"</cd>, <cd>children="something"</cd> où <u>something</u> est le  nom du tag. Vous devrez ajouter <cd>.</cd> pour les class ou <cd>#</cd> pour un id. Par exemple :
+                    <textarea style="height: 250px;">
+<a target=".something">...</a>     --> vise une class ".something"
+<span class="something">...</span> --> visé
+<span>...</span>                   --> non visé
+
+
+<a target="#hey">...</a>           --> vise un id "hey"
+<p id="hey">...</p>                --> visé
+
+
+<a target="p.uno">...</a>          --> vise a "p" avec class "uno"
+<p class="uno">...</p>             --> visé
+<p>...</p>                         --> non visé (pas une class "uno")
+<span class="uno">...</san>        --> non visé (pas un "p")
+</textarea>
+                </div>
+                <div class="simple light">
+                    <a name="one_two_three_fr"><ro style="font-size: 1.5em;">(1,2,3) class="toggle/hide/display"</ro></a> <i>le trigger cache/affiche le target.</i>
+                    <br><br>(utilisez <u>toggle</u>, <u>hide</u> ou <u>display</u>, pas les trois en même temps)
+                    <textarea>
+<element class="toggle/hide/display" target="target">text</element>
+<target>this element is displayed, hidden or toggled</target></textarea>
+
+
+
+
+                    <div class="simple h1">
+                        <ro class="toggle spoiler" target="#ex123_fr">exemple</ro>
+
+                        <div id="ex123_fr" class="hidden">
+                            <button class="toggle" target="#ex1_1_fr">Cliquez sur moi pour voir le message caché</button> <div class="small dark hidden" id="ex1_1_fr">jtm <3</div><br><br>
+
+                            <ro>code</ro>
+                            <textarea>
+<button class="toggle" target="#secret">Cliquez sur moi pour voir le message caché</button> <div class="small dark hidden" id="secret">le message secret</div></textarea>
+
+                            <button class="hide" target="#ex1_2_fr" id="ex1_2_fr">je disparaîtrai quand tu cliqueras sur moi</button><br><br>
+
+                            <ro>code</ro>
+                            <textarea><button class="hide" target="#disappear" id="disappear">je disparaîtrai quand tu cliqueras sur moi</button></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="simple light">
+                    <a name="four_fr"><ro style="font-size: 1.5em;">(4) class="toggle_inside"</ro></a> <i>liste d'onglets avec leurs boutons</i><br>
+                    Par défaut, tous les enfants de <cd>parentTarget</cd> sont cachés; cliquer sur le trigger numéro <cd>x</cd> va afficher l'enfant numéro <cd>x</cd> du <cd>parentTrigger</cd>.<br><br>
+
+                    <ro>notez</ro> que pour le parent des triggers, l'attribut <cd>children="xx"</cd> n'est pas nécessaire : si indiqué, alors les éléments indiqués à la place du <cd>xx</cd> seuls sont considérés comme triggers; et si non indiqué, tous les enfants de l'élément sont automatiquement considérés comme triggers, comme ceci :
+                    <textarea style="height: 220px;">
+<element class="toggle_inside" toggling="parentTarget">
+    <trigger>premier trigger</trigger>
+    ...
+    <trigger>Xième trigger</trigger>
+</element>
+
+<parentTarget>
+    <element>premier with first trigger</element>
+    ...
+    <element>Xième with Nth trigger</element>
+</parentTarget></textarea> Et avec <cd>children=""</cd> :
+
+
+<textarea style="height: 220px;">
+<element class="toggle_inside" toggling="parentTarget" children="trigger">
+    <trigger>premier trigger</trigger>
+    ...
+    <trigger>Xième trigger</trigger>
+</element>
+
+<parentTarget>
+    <element>affiché avec le premier trigger</element>
+    ...
+    <element>affiché avec le Xième trigger</element>
+</parentTarget>
+</textarea>
+
+                    <div class="simple h1">
+                        <ro class="toggle spoiler" target="#ex4_fr">Exemple</ro>
+
+                        <div id="ex4_fr" class="hidden">
+                            <div class="toggle_inside" toggling="#ex2_1_fr">
+                                <a>Un</a> — <a>Deux</a> — <a>Trois</a>
+                            </div>
+                            <div id="ex2_1_fr">
+                                <div class="simple dark">Le premier</div>
+                                <div class="simple h2">Le second</div>
+                                <div class="simple h3">Le troisième</div>
+                            </div>
+
+                            <ro>code</ro>
+                            <textarea style="height: 150px;">
+<div class="toggle_inside" toggling="#list_tabs">
+    <a>Un</a> — <a>Deux</a> — <a>Trois</a>
+</div>
+<div id="list_tabs">
+    <div class="simple dark">Le premier</div>
+    <div class="simple h2">Le second</div>
+    <div class="simple h3">Le troisième</div>
+</div></textarea>
+
+                            <div class="simple dark toggle_inside" toggling="#ex2_2_fr" children=".links">
+                                Et devinez quoi ! Il est aussi possible de mettre tout dans un seul élément (le parent des triggers), du moment que vous indiquez <cd>childern="nom_des_triggers"</cd> ! Liste des onglets : <a class="links">premier onglet</a>, <a class="links">second onglet</a>
+
+                                <div id="ex2_2_fr">
+                                    <div class="simple h1">premier</div>
+                                    <div class="simple h4">second</div>
+                                </div>
+                            </div>
+
+                            <ro>code</ro>
+                            <textarea style="height: 220px;">
+<div class="simple dark toggle_inside" toggling="#ex2_2" children=".links">
+    Et devinez quoi ! Il est aussi possible de mettre tout dans un seul élément (le parent des triggers), du moment que vous indiquez <cd>childern="nom_des_triggers"</cd> ! Liste des onglets : <a class="links">premier onglet</a>, <a class="links">second onglet</a>
+
+    <div id="ex2_2">
+        <div class="simple h1">premier</div>
+        <div class="simple h4">second</div>
+    </div>
+</div></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <div id="examples">
+                <qt class="entete">
+                    <rou>hide & display & toggle</rou><br>
+                </qt>
+                <div class="simple light">
+                    <wxcv><a class="toggle" target=".azer">(toggle all)</a></wxcv>
+                    <div class="simple dark toggle" target=".azer1">First title</div>
+                    <div class="azer1 azer" style="display: none;">Here your text.</div>
+
+                    <div class="simple h1 toggle" target=".azer2">Second title</div>
+                    <div class="azer2 azer" style="display: none;">Here your text.</div>
+
+                    <div class="simple h3 toggle" target=".azer3">Third title</div>
+                    <div class="azer3 azer" style="display: none;">Here your text.</div>
+
+
+
+                    <qt><ro class="toggle spoiler" target=".azer4">Code</ro>
+
+                        <textarea class="azer4" style="display: none; height: 200px;">
+<center><a class="toggle" target=".azer">(toggle all)</a></center>
+<div class="simple dark toggle" target=".azer1">First title</div>
+<div class="azer1 azer" style="display: none;">Here your text.</div>
+
+<div class="simple h1 toggle" target=".azer2">Second title</div>
+<div class="azer2 azer" style="display: none;">Here your text.</div>
+
+<div class="simple h3 toggle" target=".azer3">Third title</div>
+<div class="azer3 azer" style="display: none;">Here your text.</div></textarea>
+                    </qt>
+
+                </div>
+
+                <div class="simple light">
+                    some text
+
+
+
+                    <qt><ro class="toggle spoiler" target=".azer5">Code</ro>
+
+                        <textarea class="azer5" style="display: none; height: 200px;">xx</textarea>
+                    </qt>
+
+                </div>
+            </div>
+        </main>
+
+
+
+
+        <!-------------------- IMPORT SCRIPTS -------------------->
+        <script src="toggle_package.js"></script>
+        <script>
+            $('textarea').each(function() {
+                $(this).attr('readonly', "true");
+            });
+        </script>
+        <a name="bottom"></a>
+    </body>
+</head>

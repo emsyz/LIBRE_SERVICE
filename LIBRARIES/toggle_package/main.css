@@ -1,0 +1,49 @@
+main > *:not(#english){
+    display: none;
+}
+
+.entete{
+    margin-top: var(--lg);
+}
+
+cd, bcd, textarea{
+    font-family: Consolas,"courier new";
+    color: var(--m2);
+    background: transparent;
+    padding: 2px;
+    font-size: 105%;
+}
+
+cd{
+    display: inline-block;
+}
+
+bcd{
+    display: block;
+    margin: var(--mo) var(--sm);
+    padding: var(--mo);
+    border: 1px solid var(--m1);
+}
+
+textarea{
+    display: block;
+    width: 100% !important;
+    height: auto;
+    background: transparent !important;
+    margin: var(--mo) var(--sm);
+    padding: var(--mo);
+    box-sizing: border-box;
+    appearance: none;
+    border: 0;
+    border-left: 1px solid var(--l4);
+    resize: none;
+    outline: none;
+}
+
+.spoiler{
+    display: block;
+    cursor: crosshair;
+}
+.h1 textarea{
+    color: var(--l0);
+}
