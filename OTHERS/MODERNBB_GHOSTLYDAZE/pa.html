@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+
+
+<!--
+
+        NOTE IMPORTANTE :
+        ne pas utiliser de bbcode [ ]
+        et pour les liens, toujours mentionner :
+        <a href="URL" target="_blank">texte</a> (ouverture dans une autre fenêtre) ou
+        <a href="URL" target="_top">texte</a>   (ouverture dans la même fenêtre)
+
+-->
+
+
+<html>
+  <head>
+    <title>composer sa fiche</title>
+    <link rel="icon" href="https://2img.net/i/fa/favicon/discussion.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Mulish:wght@200&family=Oswald&family=Playfair+Display&family=Rozha+One&display=swap" rel="stylesheet"/>
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-type" />
+
+    <style>
+      /*- - - - - - - - - - - - - - - - - - - - GLOBAL GLOBAL GLOBAL - - - - - - - - - - - - - - - - - - - -*/
+
+:root{
+  --l0: #ffffff; /*light 0*/
+  --l1: #FAFAFA; /*light 1*/
+  --l2: #F6F6F6; /*light 2*/
+  --l3: #F1F1F1; /*#light 3*/
+  --l4: #EBEBEB; /*light 4*/
+
+  --m1: #E4E4E4; /*moyen 1*/
+  --m2: #CACACA; /*moyen 2*/
+
+  --d1: #31465C; /*dark 1*/
+  --d2: #1B2736; /*dark 2*/
+  --d3: #0F161E; /*dark 3*/
+
+  --h1: #3E6EAB; /*highlight 1: bleu moyen*/
+  --h2: #7392B5; /*highlight 2: bleu clair*/
+  --h3: #EABF8A; /*highlight 3: brun moyen*/
+  --h4: #EFCEA7; /*highlight 4: brun clair*/
+
+  --sm: 6px;
+  --mo: 12px;
+  --bg: 25px;
+  --lg: 50px;
+  --gi: 100px;
+
+  --grid-gap: var(--sm);
+
+
+  --header-width: 850px;
+
+  --main-color: var(--d3);
+  --main-font: 'Mulish', Verdana, sans-serif;
+
+  --main-border-thin: 2px solid var(--m1);
+  --main-border: 3px solid var(--m1);
+  --main-border-thick: 6px solid var(--m1);
+  --main-border-radius: 2px;
+  --main-box-shadow: 0 0 5px var(--m1);
+  --main-box-shadow-highlight: 0 0 3px var(--d1);
+
+  --table-background: var(--l2);
+  --table-highlight-background: var(--l3);
+  --table-header-background: var(--h1);
+
+  color: var(--d3);
+  font-family: 'Mulish';
+  font-size: 11px;
+  line-height: 12px;
+  text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+/*- - - - - - - - - - - - - - - - - - - - OVERALL PACK - - - - - - - - - - - - - - - - - - - -*/
+
+/* nom | durée | fonction | retard */
+HTML *{
+  transition: all var(--transt) ease;
+  -webkit-transition: all var(--transt) ease;
+  -moz-transition: all var(--transt) ease;
+  -ms-transition: all var(--transt) ease;
+  -o-transition: all var(--transt) ease;
+  --transt: .4s;
+}
+
+HTML, HTML * {
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+
+/*- - - - - - - - - - - - - - - - - - - - FONTS FONTS FONTS - - - - - - - - - - - - - - - - - - - -*/
+
+a{
+  color: var(--h3);
+  text-decoration: none !important;
+}
+
+a:hover{
+  color: var(--h4);
+}
+
+a, a:visited{
+  text-decoration: none;
+}
+
+a:hover, input:hover, label:hover{
+  color: var(--h2);
+  cursor: crosshair;
+}
+
+a.forumtitle, a.forumtitle:visited, a.forumtitle:link {
+  color: unset;
+}
+
+input[type=text]:hover{
+  color: unset;
+}
+
+u {
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+::selection{
+  background: var(--m2);
+  color: var(--l2);
+}
+
+
+
+
+
+/*- - - - - h2, h3, h4, h5, h6 - - - - -*/
+
+h2 {
+  color: var(--m2);
+  font-family: 'Playfair Display';
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+h2::before {
+  content: '[ ';
+}
+
+h2::after {
+  content: ' ]'
+}
+
+.simple h2 {
+  margin: 0;
+}
+
+h2 + pp {
+  display: block;
+  margin-top: var(--sm);
+  border-top: 1px solid;
+  padding: var(--sm) var(--sm) 0;
+  opacity: .7;
+
+  text-transform: lowercase;
+}
+
+h2 + pp a {
+  color: inherit !important;
+}
+
+h3{
+  margin: 0;
+  color: var(--h4);
+  font-family: 'Playfair Display';
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-weight: normal;
+  text-transform: lowercase;
+}
+
+h4, .quick_reply_topic div.h3 {
+  padding: 0 var(--mo) var(--sm);
+  border: 0;
+  border-bottom: 1px solid var(--highlight-color);
+
+  color: var(--d3);
+  font-family: 'Rozha One', 'Abril Fatface', serif;
+  font-size: 24px;
+  font-weight: normal;
+  text-shadow: 1px 0 0 var(--highlight-color);
+  --highlight-color: var(--m2);
+}
+
+
+
+
+
+/*- - - - - ro, rou - - - - -*/
+
+ro, rou {
+  font-family: 'Rozha One', 'Abril Fatface', serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+ro {
+  color: var(--d3);
+  text-transform: lowercase;
+}
+
+rou {
+  color: var(--d2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dark ro, .dark rou {
+  color: var(--l4);
+}
+
+
+
+
+
+/*- - - - - pl, plu, pp, ppb - - - - -*/
+
+pl, plu, pp, ppb {
+  font-family: 'Playfair Display';
+  font-weight: normal;
+}
+
+pl {
+  text-transform: lowercase;
+}
+
+plu {
+  color: var(--d1);
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+pp, ppb {
+  color: var(--m2);
+  font-size: 10px;
+  font-style: italic;
+  letter-spacing: 5px;
+}
+
+pp:hover, ppb:hover {
+  color: var(--m1);
+  letter-spacing: 6px;
+}
+
+ppb {
+  display: block;
+  width: 90%;
+  margin: var(--sm) auto 0;
+}
+
+ppb:before, ppb:after {
+  content: ' &#8212; ';
+}
+
+
+
+
+
+/*- - - - - tag, btag, dtag - - - - -*/
+
+tag, btag, dtag {
+  text-transform: lowercase;
+  font-style: normal;
+  font-weight: bold;
+  text-align: left;
+}
+
+tag {
+  padding: 3px var(--sm);
+}
+
+tag, btag {
+  background: var(--l4);
+
+  color: var(--d3);
+}
+
+dtag {
+  background: var(--d1);
+  margin: var(--sm);
+
+  color: var(--l4);
+}
+
+btag, dtag {
+  box-shadow: var(--main-box-shadow);
+  padding: var(--sm) var(--mo);
+}
+
+a tag, a btag {
+  color: var(--h1);
+}
+
+a dtag {
+  color: var(--h1);
+}
+
+
+
+
+
+/*- - - - - ch, vh - - - - -*/
+
+
+
+
+
+/*- - - - - other - - - - -*/
+
+lgn{
+  display: block;
+  width: 100%;
+  height: 0;
+  border-bottom: 1px solid var(--l4);
+  margin-bottom: var(--grid-gap);
+}
+
+
+
+
+
+
+
+
+
+/*- - - - - - - - - - - - - - - - - - - - ELEMENTS (buttons, inputs & co) - - - - - - - - - - - - - - - - - - - -*/
+
+input, button, textarea {
+  outline: none;
+  font-family: inherit;
+}
+
+a, input, button {
+  cursor: crosshair;
+}
+
+button, .button1, .button2 {
+  text-transform: lowercase;
+}
+
+[class^=bp_] input, [class^=bp_] button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.button1 {
+  background: var(--h3) !important;
+  box-shadow: var(--main-box-shadow) !important;
+
+  font-family: inherit;
+}
+
+.button1:hover {
+  background: var(--h4) !important;
+  box-shadow: var(--main-box-shadow-highlight) !important;
+}
+
+.button2 {
+  background: var(--h1) !important;
+  box-shadow: var(--main-box-shadow) !important;
+
+  font-family: inherit;
+}
+
+.button2:hover {
+  background: var(--h2) !important;
+  box-shadow: var(--main-box-shadow-highlight) !important;
+}
+
+img {
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+/*- - - - - - - - - - - - - - - - - - - - BLOCKS BLOCKS BLOCKS - - - - - - - - - - - - - - - - - - - -*/
+
+scroll{
+    flex: 1 1 auto;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+*::-webkit-scrollbar{
+  width: 0px;
+}
+
+[class^=bp_] input.onglet + div, [class^=bp_] input.onglet + label + div{
+  display: none;
+}
+
+[class^=bp_] input.onglet:checked + div, [class^=bp_] input.onglet:checked + label + div{
+  display: block;
+}
+
+table{
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+
+  color: inherit;
+  text-align: inherit;
+  font-size: inherit;
+}
+
+
+/* - - - - - BLOCKS DIVERS - - - - - */
+
+.column{
+  column-count: 2;
+  column-gap: 25px;
+}
+
+.column.rule{
+  column-gap: 40px;
+  column-rule: 1px solid var(--l4);
+}
+
+.column *{
+  break-inside: avoid;
+}
+
+k{
+  display: block;
+  text-align: center;
+}
+
+k img{
+  max-width: 200px;
+}
+
+.moodboard{
+  width: 100%;
+  column-count: 3;
+  column-gap: var(--gap);
+  --gap: 15px;
+}
+
+.moodboard:hover img{
+  opacity: 1;
+}
+
+.moodboard img{
+  width: 100%;
+  margin-bottom: var(--gap);
+  opacity: .7;
+  border-radius: 3px;
+}
+
+
+/* - - - - - FLEX - - - - - */
+
+.flexrow, .flexcolumn{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexcolumn{
+  flex-direction: column;
+}
+
+.flexcolumn > *{
+  flex: 1;
+  margin: 0 !important;
+  margin-bottom: var(--grid-gap) !important;
+}
+
+.flexrow > *{
+  flex: 1;
+  margin: 0 !important;
+  margin-right: var(--grid-gap) !important;
+}
+
+.flexcolumn > *:last-child, .flexrow > *:last-child{
+  margin: 0px !important;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  grid-gap: 20px;
+  --max: 250px;
+}
+
+.flex > * {
+  flex: 1 0 var(--max);
+  margin: 0 !important;
+}
+
+.flex .first{
+  flex: 0 0 100% !important;
+}
+
+.no-extend{
+    flex: 0 0 auto;
+}
+
+.extend{
+    flex: 1 1 auto;
+}
+
+/*- - - - - AESTHETIC BLOCKS - - - - -*/
+
+.simple{
+  margin: var(--mo) 0 0;
+  padding: var(--mo);
+  border-radius: var(--main-border-radius);
+}
+
+.small{
+  padding: var(--sm);
+}
+
+.nomargin{
+  margin: 0 !important;
+}
+
+.nopadding{
+  padding: 0 !important;
+}
+
+.noborder{
+    border: 0 !important;
+}
+
+ul.nobullet{
+    list-style-type: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.none{
+    display: none;
+}
+
+.relative{
+  position: relative;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.fixed{
+  position: fixed;
+}
+
+.light{
+  background: var(--l1);
+  box-shadow: var(--main-box-shadow);
+}
+
+.light .light{
+  background: var(--l2);
+}
+
+.light .light .light {
+  background: var(--l3);
+}
+
+.light .light .light .light {
+  background: var(--l4);
+}
+
+.light.highlight:hover {
+  background: var(--d1);
+
+  color: var(--l4);
+}
+
+.middle{
+  background: var(--m1);
+  box-shadow: var(--main-box-shadow);
+}
+
+.middle.highlight:hover {
+  background: var(--d1);
+  color: var(--l4);
+}
+
+.dark{
+  background: var(--d2);
+  box-shadow: var(--main-box-shadow);
+
+  color: var(--l4);
+}
+
+.dark.highlight:hover {
+  background: var(--d3);
+  color: var(--h3);
+}
+
+.h1{
+  background: var(--h1);
+  box-shadow: var(--main-box-shadow);
+}
+
+.h2{
+  background: var(--h2);
+  box-shadow: var(--main-box-shadow);
+}
+
+.h3:not(h2){
+  background: var(--h3);
+  box-shadow: var(--main-box-shadow);
+  font-size: inherit !important;
+  border: unset;
+}
+
+.h4{
+  background: var(--h4);
+  box-shadow: var(--main-box-shadow);
+}
+
+.left-align{
+  text-align: left !important;
+}
+
+.center-align{
+  text-align: center !important;
+}
+
+.right-align{
+  text-align: right !important;
+}
+
+.justify-align{
+  text-align: justify !important;
+}
+
+qsdf{
+  display: block;
+  text-align: right;
+}
+
+wxcv{
+  display: block;
+  text-align: center;
+}
+
+.lowercase{
+  text-transform: lowercase;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+qt{
+    display: block;
+    margin: var(--mo) 0 var(--mo) var(--mo);
+    padding: var(--sm) 0 var(--sm) var(--mo);
+    border-left: 1px solid var(--l4);
+}
+
+
+
+
+
+
+
+
+
+
+/*- - - - - - - - - - - - - - - - - - - - PA PA PA - - - - - - - - - - - - - - - - - - - -*/
+
+.subtitle_pa, .subtitle_pa * {
+  color: var(--d3);
+  font-size: 10px;
+}
+
+.bp_pa {
+  display: grid;
+  grid-gap: var(--mo);
+  grid-template:
+    "top_left top_center top_right" 150px
+    "bottom_left bottom_center bottom_right" var(--total-height-staff)
+   / 1fr 1fr 1fr;
+  --actual-height-input-staff: 4px;
+  --height-infos-staff: 50px;
+  --height-input-staff: calc(var(--actual-height-input-staff) + var(--margin-staff));
+  --margin-staff: var(--mo);
+
+  --total-height-staff: calc(var(--height-input-staff) + var(--height-infos-staff));
+}
+
+.bp_pa > * {
+  margin: 0 !important;
+}
+
+.icon_pa {
+  grid-area: top_left;
+}
+
+.icon_pa img {
+  width: 100%;
+  height: 100%;
+}
+
+.context_pa {
+  grid-area: top_center;
+}
+
+.infos1_pa {
+  grid-area: top_right;
+}
+
+.infos2_pa {
+  grid-area: bottom_left;
+
+  font-size: 11px;
+  font-style: italic;
+  line-height: 14px;
+  text-align: justify;
+}
+
+/*staff*/
+
+.staff_pa {
+  grid-area: bottom_center;
+  position: relative;
+}
+
+.input_pa {
+  height: var(--height-input-staff);
+  border-bottom: var(--margin-staff) solid var(--l1);
+  background: var(--m1);
+}
+
+.input_pa:last-of-type {
+  margin: 0 !important;
+}
+
+.input_pa:hover {
+  background: var(--h1);
+}
+
+.input_pa:checked {
+  background: var(--h2);
+}
+
+.about_staff_pa {
+  display: none;
+  width: 100%;
+  height: calc(100% - var(--height-input-staff));
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.input_pa:checked + .about_staff_pa {
+  display: block;
+}
+
+.about_staff_pa > div {
+  width: 100%;
+  height: 100%;
+}
+
+.infos_staff_pa {
+  padding-right: var(--mo);
+
+  font-size: 11px;
+}
+
+.infos_staff_pa i {
+  opacity: .8;
+
+  font-size: 10px;
+}
+
+.infos_staff_pa a {
+  color: inherit;
+}
+
+.icon_staff_pa {
+  width: var(--height-infos-staff);
+  height: var(--height-infos-staff);
+}
+
+.icon_staff_pa img {
+  width: 100%;
+  height: 100%;
+}
+
+/*partners*/
+
+.partners_pa {
+  grid-area: bottom_right;
+
+  line-height: 20px;
+}
+
+.partners_pa tag {
+  font-size: 10px;
+}
+    </style>
+  </head>
+
+  <body>
+
+    <header>
+    </header>
+
+
+    <main>
+      <div class="simple light center-align">
+        <h3>&#8212; bienvenue sur le forum &#8212;</h3>
+        <pl class="subtitle_pa">
+          <a href="URL_TOPIC" target="_top">lien ici</a> &#8212;
+          <a href="URL_TOPIC" target="_top">lien ici</a> &#8212;
+          <a href="URL_TOPIC" target="_top">lien ici</a> &#8212;
+          <a href="URL_TOPIC" target="_top">lien ici</a> &#8212;
+          <a href="URL_TOPIC" target="_top">lien ici</a> &#8212;
+          <a href="URL_TOPIC" target="_top">lien ici</a> &#8212;
+          <a href="URL_TOPIC" target="_top">lien ici</a>
+        </pl>
+      </div>
+
+      <div class="bp_pa simple light">
+        <div class="icon_pa simple middle small">
+          <img src="URL_IMAGE"/>
+        </div>
+
+        <div class="context_pa simple light">
+          <scroll>
+            <ro>contexte</ro> Vivamus tortor nisi, auctor vitae sollicitudin sit amet, congue at velit. Ut eu sem ligula. Vestibulum rutrum congue finibus. In non orci risus. Morbi at dolor in massa semper semper. Suspendisse potenti. Suspendisse efficitur velit et dictum posuere. Nullam vitae lorem nec nibh molestie volutpat vel quis libero. Cras ac auctor nulla. Curabitur viverra massa dolor, in accumsan nibh vulputate ac. Curabitur eu est accumsan, molestie justo sed, molestie leo. Vivamus mattis dui dolor, a dignissim nulla commodo ac. Duis facilisis sem quis congue finibus. Integer sit amet massa id est rhoncus rhoncus at interdum nisl. Nunc at malesuada eros.
+          </scroll>
+        </div>
+
+        <div class="infos1_pa simple light">
+          <scroll>
+            <ro>informations diverses</ro> Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum gravida tellus risus, vel feugiat leo dignissim quis. Cras nec laoreet ex, id feugiat arcu. Curabitur euismod leo eu libero consectetur, eget vulputate nibh congue. Donec ultricies, lorem tristique pulvinar lobortis, mi urna porta mauris, sit amet consectetur sapien felis vestibulum nunc. Morbi varius, nibh eu volutpat placerat, arcu tortor elementum lorem, quis tristique neque sapien sed libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus tincidunt nisl leo, et gravida erat aliquam quis. Nulla odio diam, posuere condimentum felis vitae, egestas eleifend orci. Nulla lacinia tincidunt nunc, sed eleifend arcu viverra ac. Maecenas blandit nisi non augue viverra, vel elementum arcu eleifend. Maecenas id fringilla ante, a placerat leo.
+          </scroll>
+        </div>
+
+        <scroll class="infos2_pa">
+          <ro>disclaimer</ro> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tincidunt iaculis feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce nibh sem, sagittis eget accumsan at, fermentum eget ipsum. Vivamus sit amet eros eget nisl malesuada molestie id vel lacus. Ut ut turpis semper ex auctor posuere. Pellentesque sed ex vel enim molestie ullamcorper. Nulla ac quam orci. Quisque ultricies justo at scelerisque fermentum. Morbi cursus quam purus, a dapibus ex egestas eget. Donec varius gravida sapien, eget consequat erat suscipit ac. Fusce luctus maximus efficitur. Maecenas porta luctus auctor. Nulla malesuada feugiat dolor nec lobortis. Praesent facilisis urna risus, a tempus enim tincidunt et. Integer consectetur metus ut ullamcorper gravida. Duis ut metus non dolor varius imperdiet. Nam quam nunc, pretium ac libero eu, suscipit aliquam nunc. Donec ut ipsum eu nibh volutpat sodales. Curabitur leo erat, ornare et posuere consequat, ultrices eu eros. Aenean lobortis, magna ut feugiat pellentesque, tortor risus porttitor quam, eget porttitor metus felis in ligula. Duis orci orci, eleifend nec bibendum vel, convallis sit amet urna. Nunc interdum dui dui, sit amet interdum diam cursus sit amet. Duis placerat enim id nisi lacinia malesuada.
+        </scroll>
+
+        <div class="staff_pa flexrow">
+          <input type="radio" name="staff_pa" class="input_pa" checked/>
+          <div class="about_staff_pa">
+            <div class="flexrow">
+              <div class="infos_staff_pa table_js right-align">
+                <ro>admin 1</ro><br/>
+                <i><a href="URL_PROFIL" target="_top">compte 1</a> + <a href="URL_PROFIL" target="_top">compte 1</a> + <a href="URL_PROFIL" target="_top">compte 1</a></i>
+              </div>
+
+              <div class="icon_staff_pa no-extend small middle">
+                <img src="URL_ICON"/>
+              </div>
+            </div>
+          </div>
+
+          <input type="radio" name="staff_pa" class="input_pa"/>
+          <div class="about_staff_pa">
+            <div class="flexrow">
+              <div class="infos_staff_pa table_js right-align">
+                <ro>admin 2</ro><br/>
+                <i><a href="URL_PROFIL" target="_top">compte 1</a> + <a href="URL_PROFIL" target="_top">compte 1</a> + <a href="URL_PROFIL" target="_top">compte 1</a></i>
+              </div>
+
+              <div class="icon_staff_pa no-extend small middle">
+                <img src="URL_ICON"/>
+              </div>
+            </div>
+          </div>
+
+          <input type="radio" name="staff_pa" class="input_pa"/>
+          <div class="about_staff_pa">
+            <div class="flexrow">
+              <div class="infos_staff_pa table_js right-align">
+                <ro>modo</ro><br/>
+                <i><a href="URL_PROFIL" target="_top">compte 1</a> + <a href="URL_PROFIL" target="_top">compte 1</a> + <a href="URL_PROFIL" target="_top">compte 1</a></i>
+              </div>
+
+              <div class="icon_staff_pa no-extend small middle">
+                <img src="URL_ICON"/>
+              </div>
+            </div>
+          </div>
+
+          <input type="radio" name="staff_pa" class="input_pa"/>
+          <div class="about_staff_pa">
+            <div class="flexrow">
+              <div class="infos_staff_pa table_js right-align">
+                <ro>graphiste</ro><br/>
+                <i><a href="URL_PROFIL" target="_top">compte 1</a> + <a href="URL_PROFIL" target="_top">compte 1</a> + <a href="URL_PROFIL" target="_top">compte 1</a></i>
+              </div>
+
+              <div class="icon_staff_pa no-extend small middle">
+                <img src="URL_ICON"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="partners_pa">
+          <scroll>
+            <ro>partenaires</ro><br/>
+            <a href="URL_FORUM" target="_top"><tag>premier partenaire</tag></a>
+            <a href="URL_FORUM" target="_top"><tag>deuxième forum</tag></a>
+            <a href="URL_FORUM" target="_top"><tag>troisième</tag></a>
+            <a href="URL_FORUM" target="_top"><tag>quatrième</tag></a>
+            <a href="URL_FORUM" target="_top"><tag>cinquième</tag></a>
+            <a href="URL_FORUM" target="_top"><tag>sixième</tag></a> 
+          </scroll>
+        </div>
+      </div>
+    </main>
+
+
+
+    <script>
+        $('.table_js').wrapInner('<table><tr><td></table></tr></td>');
+  	$('.scroll_js').wrapInner('<scroll></scroll>');
+    </script>
+  </body>
+</html>
