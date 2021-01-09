@@ -1,13 +1,9 @@
-#i_logo {
-  width: 850px;
-}
-
 .title_cendres, .title_cendres *, .admin_cendres, .admin_cendres *, .bp_cendres, .bp_cendres * {
   box-sizing: border-box;
 }
 
 .title_cendres, .admin_cendres, .bp_cendres {
-  width: 850px; /*à modifier ici, largeur totale du profil*/
+  width: 100%; /*à modifier ici si nécessaire, largeur totale du profil*/
   margin: auto;
   margin-bottom: var(--grid-gap);
 
