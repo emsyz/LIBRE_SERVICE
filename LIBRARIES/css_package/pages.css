@@ -1,0 +1,91 @@
+/*- - - - - - GENERAL - - - - - -*/
+
+HTML {
+    --bck-color: #E2E2E2;
+    background: var(--bck-color);
+}
+
+a {
+    color: var(--h4);
+}
+
+
+
+
+
+/*- - - - - - HEADER - - - - - -*/
+
+header.shown {
+    width: 150px;
+}
+
+header.shrunk {
+    width: auto;
+}
+
+header button {
+    background: transparent;
+    border: 0;
+    outline: none;
+
+    color: var(--d3);
+}
+
+header svg {
+    width: var(--sq);
+    height: var(--sq);
+    --sq: 30px;
+    margin-bottom: var(--bg);
+
+    fill: var(--h1);
+    stroke: var(--d3);
+}
+
+header.shrunk #colorWells {
+    display: none;
+}
+
+#colorWells label {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: var(--mo);
+}
+
+#colorWells label > *:first-child {
+    flex: 1 1 auto;
+}
+
+#colorWells input {
+    background: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+}
+
+
+
+
+
+/*- - - - - - MAIN - - - - - -*/
+
+main {
+}
+
+#main {
+    max-width: 850px !important;
+    width: 90% !important;
+    min-width: 400px !important;
+    margin: auto !important;
+}
+
+#bodylinewidth {
+    height: 100%;
+    padding: 50px;
+}
+
+#bodylinewidth > * {
+    height: 100%;
+    overflow: auto;
+}

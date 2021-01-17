@@ -1,0 +1,156 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Mulish:wght@200&family=Oswald&family=Playfair+Display&family=Rozha+One&display=swap" rel="stylesheet">
+
+
+        <!-------------------- IMPORT CSS -------------------->
+        <link href="style.css" rel="stylesheet">
+        <link href="pages.css" rel="stylesheet">
+
+
+        <!-------------------- IMPORT SCRIPTS -------------------->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    </head>
+    <!--
+        BASIC : each $(button:nth-of-type) of $('.TI1') toggles
+        the child:nth-of-type of $('.test1')
+    -->
+
+    <body>
+        <a name="top"></a>
+
+        <section id="bodylinewidth" class="flexrow auto">
+            <header class="no-extend shown">
+                <button id="headerExtend">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                    </svg>
+                </button>
+
+
+                <section id="colorWells">
+                        <label>
+                            <ro class="table_js right-align">background-color</ro>
+                            <input type="color" varToChange="--bck-color"/>
+                        </label>
+                        <label class="none">
+                            <ro class="table_js right-align">light 0</ro>
+                            <input type="color" varToChange="--l0"/>
+                        </label>
+                        <label>
+                            <ro class="table_js right-align">light 1</ro>
+                            <input type="color" varToChange="--l1"/>
+                        </label>
+                        <label>
+                            <ro class="table_js right-align">light 2</ro>
+                            <input type="color" varToChange="--l2"/>
+                        </label>
+                        <label>
+                            <ro class="table_js right-align">light 3</ro>
+                            <input type="color" varToChange="--l3"/>
+                        </label>
+                        <label>
+                            <ro class="table_js right-align">light 4</ro>
+                            <input type="color" varToChange="--l4"/>
+                        </label>
+
+
+
+                        <label>
+                            <ro class="table_js right-align">middle 1</ro>
+                            <input type="color" varToChange="--m1"/>
+                        </label>
+                        <label>
+                            <ro class="table_js right-align">middle 2</ro>
+                            <input type="color" varToChange="--m2"/>
+                        </label>
+
+
+
+                        <label>
+                            <ro class="table_js right-align">dark 1</ro>
+                            <input type="color" varToChange="--d1"/>
+                        </label>
+                        <label>
+                            <ro class="table_js right-align">dark 2</ro>
+                            <input type="color" varToChange="--d2"/>
+                        </label>
+                        <label>
+                            <ro class="table_js right-align">dark 3</ro>
+                            <input type="color" varToChange="--d3"/>
+                        </label>
+
+
+
+                        <label>
+                            <ro class="table_js right-align">highlight 1</ro>
+                            <input type="color" varToChange="--h1"/>
+                        </label>
+                        <label>
+                            <ro class="table_js right-align">highlight 2</ro>
+                            <input type="color" varToChange="--h2"/>
+                        </label>
+                        <label>
+                            <ro class="table_js right-align">highlight 3</ro>
+                            <input type="color" varToChange="--h3"/>
+                        </label>
+                        <label>
+                            <ro class="table_js right-align">highlight 4</ro>
+                            <input type="color" varToChange="--h4"/>
+                        </label>
+                </section>
+            </header>
+
+            <main>
+                <section id="main">
+                    <div class="simple dark highlight center-align">
+                        <h2>démonstration du pack css</h2>
+                        <pp><a href="#top">retour au forum</a></pp>
+                    </div>
+
+
+
+                    <div class="simple light">
+                        <h3>la base</h3>
+                    </div>
+                    <div class="flexrow simple nopadding">
+                        <div class="simple light">
+                            un
+                        </div>
+
+                        <div class="simple light" id="test">
+                            deux
+                        </div>
+                    </div>
+
+                    <div class="simple light">
+                        <qt>some stuff here</qt>
+
+                        <div class="simple light">
+                            some other stuff  here<br>
+
+                            <div class="simple light">
+                                some other<br>
+
+                                <div class="simple light">
+                                    some other
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </section>
+            </main>
+        </section>
+
+
+
+
+        <!-------------------- IMPORT SCRIPTS -------------------->
+        <script src="color.js"></script>
+        <script src="pages.js"></script>
+
+        <a name="bottom"></a>
+    </body>
+</head>
