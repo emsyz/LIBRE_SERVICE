@@ -403,27 +403,31 @@ table{
   display: flex;
   justify-content: space-between;
   overflow: hidden;
+}
+
+.flexrow.fixed {
   --height: 200px;
 }
 
-.flexrow.auto, .flexcolumn.auto {
-    --height: auto !important;
+.flexrow.fixed > * {
+  height: var(--height);
 }
 
 .flexcolumn{
   flex-direction: column;
+  height: var(--height);
+  --height: 200px;
 }
 
-.flexcolumn > *{
-  flex: 1;
-  height: var(--height);
+.flexcolumn > * {
+  flex: 1 1 auto;
+  height: 0;
   margin: 0 !important;
   margin-bottom: var(--grid-gap) !important;
 }
 
 .flexrow > *{
   flex: 1;
-  height: var(--height);
   margin: 0 !important;
   margin-right: var(--grid-gap) !important;
 }
@@ -441,6 +445,14 @@ table{
   --max: 250px;
 }
 
+.flex.fixed {
+  --height-flex: 200px;
+}
+
+.flex.fixed > * {
+  height: var(--height-flex);
+}
+
 .flex > * {
   flex: 1 0 var(--max);
   margin: 0 !important;
@@ -454,7 +466,11 @@ table{
     flex: 0 0 auto;
 }
 
-.extend{
+.flexcolumn > .no-extend {
+    height: auto;
+}
+
+.extend, fill{
     flex: 1 1 auto;
 }
 

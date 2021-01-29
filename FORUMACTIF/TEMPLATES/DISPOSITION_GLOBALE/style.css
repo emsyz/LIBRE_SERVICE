@@ -1,0 +1,291 @@
+/*- - - - - - - - - - - - - - - - - - - - GLOBAL GLOBAL GLOBAL - - - - - - - - - - - - - - - - - - - -*/
+
+:root{
+  --l0: #ffffff; /*light 0*/
+  --l1: #FAFAFA; /*light 1*/
+  --l2: #F6F6F6; /*light 2*/
+  --l3: #F1F1F1; /*#light 3*/
+  --l4: #EBEBEB; /*light 4*/
+
+  --m1: #E4E4E4; /*moyen 1*/
+  --m2: #CACACA; /*moyen 2*/
+
+  --d1: #31465C; /*dark 1*/
+  --d2: #1B2736; /*dark 2*/
+  --d3: #0F161E; /*dark 3*/
+
+  --h1: #3E6EAB; /*highlight 1: bleu moyen*/
+  --h2: #7392B5; /*highlight 2: bleu clair*/
+  --h3: #EABF8A; /*highlight 3: brun moyen*/
+  --h4: #EFCEA7; /*highlight 4: brun clair*/
+
+  --sm: 6px;
+  --mo: 12px;
+  --bg: 25px;
+  --lg: 50px;
+  --gi: 100px;
+
+  --grid-gap: var(--mo);
+
+  --background-body: var(--l1);
+
+  --width-slider: 300px;
+
+  --height-header: 450px;
+  --height-navbar: 100px;
+  --height-header: 450px;
+
+  --margin-main: var(--bg);
+
+  --main-color: var(--d3);
+  --main-font: 'Mulish', Verdana, sans-serif;
+
+  --table-background: var(--l2);
+  --table-highlight-background: var(--l3);
+  --table-header-background: var(--h1);
+
+  color: var(--d3);
+  font-family: 'Mulish';
+  font-size: 11px;
+  line-height: 14px;
+  text-align: justify;
+}
+
+HTML {
+  height: auto;
+  min-height: 100%;
+  background: var(--background-body); /*FOND DU FORUM en dégradé, remplacer une image ou une couleur si voulu*/
+}
+
+body {
+  background: transparent;
+  margin-top: var(--height-navbar) !important;
+}
+
+/* nom | durée | fonction | retard */
+
+HTML *{
+  transition: all var(--transt) ease;
+  -webkit-transition: all var(--transt) ease;
+  -moz-transition: all var(--transt) ease;
+  -ms-transition: all var(--transt) ease;
+  -o-transition: all var(--transt) ease;
+  --transt: .4s;
+}
+
+HTML, HTML * {
+  box-sizing: border-box;
+}
+
+
+
+
+
+/*- - - - - HEADER - - - - -*/
+
+#page-header{
+  padding: 0
+}
+
+#logo {
+  margin: 0;
+  height: var(--height-header);
+}
+
+#logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+/*- - - - - MAIN & SLIDER - - - - -*/
+
+main {
+  display: grid;
+  margin: var(--margin-main) var(--mg-main);
+  grid-template:
+    "left . right" auto
+    "left . right" auto
+    / auto var(--mg-main) 1fr;
+  --mg-main: 120px;
+}
+
+#slider {
+  height: 80vh;
+  grid-area: left;
+  width: var(--width-slider);
+  padding-right: var(--bg);
+
+  position: -webkit-sticky;
+  position: sticky;
+  top: var(--height-navbar);
+  left: 0;
+}
+
+#main {
+  grid-area: right;
+}
+
+#wrap{
+  width: 100% !important;
+  box-shadow: 0;
+  margin: 0 auto;
+}
+
+
+
+
+
+/*- - - - - FALSE NAVBAR - - - - -*/
+
+nav {
+  width: 100%;
+  height: var(--height-navbar);
+  background: var(--background-body);
+  overflow: hidden;
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+
+  text-align: left;
+}
+
+nav table {
+  height: 100%;
+  width: auto;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 var(--mo) !important;
+
+  text-transform: lowercase;
+}
+
+.avatar_navbar {
+  width: var(--sq);
+  height: var(--sq);
+  --scale: 0.7;
+  --sq: calc(0.6 * var(--height-navbar));
+  margin-left: var(--bg);
+  margin-right: var(--bg);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar_navbar img {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+/*- - - - - FA NAVBAR - - - - -*/
+
+#fa_navbar li {
+  display: block;
+  margin: 0 auto;
+}
+
+#fa_navbar a {
+  color: var(--d3);
+  font-weight: bold;
+  text-transform: lowercase;
+}
+
+#fa_navbar img {
+  display: none;
+}
+
+
+
+
+
+/*- - - - - TOOLBAR - - - - -*/
+
+#fa_toolbar {
+  height: 0;
+  position: fixed;
+  z-index: 999;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+
+  text-transform: lowercase;
+}
+
+#fa_left, #fa_search, #fa_share, #fa_hide, #fa_menu, #fa_menu * {
+  display: none !important;
+}
+
+#fa_right {
+  position: fixed;
+  top: calc(0.35 * var(--height-navbar));
+  right: var(--bg);
+}
+
+#fa_right a {
+  color: var(--d3) !important;
+}
+
+#notif_list {
+  width: 420px !important;
+  left: unset !important;
+  right: 0 !important;
+}
+
+
+
+
+
+/*- - - - - FOOTER - - - - -*/
+
+#page-footer {
+  background: transparent;
+}
+
+#page-footer .wrap, #page-footer .footerbar-system {
+  padding: 0;
+}
+
+#page-footer * {
+  color: var(--footer-color);
+  --footer-color: var(--m2);
+  font-size: 10px;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+}
+
+.copyright-body{
+  border: none;
+  margin-bottom: var(--bg);
+}
+
+.copyright-body a{
+  display: block;
+  width: 100%;
+  padding-top: var(--mo);
+  border-top: 1px solid var(--footer-color);
+
+  font-size: 14px !important;
+}
+
+scroll{
+    flex: 1 1 auto;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+*::-webkit-scrollbar{
+  width: 0px;
+}
