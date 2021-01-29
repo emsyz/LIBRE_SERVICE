@@ -1,0 +1,37 @@
+{
+  "_id": {
+    "$oid": "5fd9e825e4ee5e3b8018b474"
+  },
+  "mail": "test@test",
+  "password": "$2b$10$EuZ.bwIevSUsBGbV0FSeKOO8clBssmJx2NWOzWS64XIMjy5S4Ania",
+  "lastName": "Beta",
+  "firstName": "Testeur",
+  "phone": "0123456789"
+}{
+  "_id": {
+    "$oid": "5fd9f11ea5114625f009869a"
+  },
+  "mail": "john.smith@gmail.com",
+  "password": "$2b$10$8pvsLQ8wRB6kPyaUYTY.M.uHm7dCS7.RbUdbPMH5rJptW9NH0IMO6",
+  "lastName": "Smith",
+  "firstName": "John",
+  "phone": ""
+}{
+  "_id": {
+    "$oid": "5fd9f30aa5114625f009869c"
+  },
+  "mail": "jean.denis@gmail.com",
+  "password": "$2b$10$CPh7pkx/sdwRCwyvg6F0q.4PYAa.jp1KCwaCc33aI14cg7gC.x3mW",
+  "lastName": "Denis",
+  "firstName": "Jean",
+  "phone": "0520164789"
+}{
+  "_id": {
+    "$oid": "5fd9f64fa5114625f009869e"
+  },
+  "mail": "sofia.valdez@gmail.com",
+  "password": "$2b$10$qGutIxLSNOeE4Jp6Z2V6ge9bgHfgfEhxP6MPkK/EbT/AphpSPiuom",
+  "lastName": "Valdez",
+  "firstName": "Sofia",
+  "phone": "0163528976"
+}

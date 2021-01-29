@@ -1,0 +1,159 @@
+/** ADD YOUR AWESOME CODES HERE **/
+
+html, body {
+    height: 100%;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/45/Belgique_-_Ottignies-Louvain-la-Neuve_-_Limelette_-_Ferme_d%27Au_Pont_-_04.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+.full-height {
+    flex-grow: 1;
+  }
+  
+h2{
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+p{
+    color:white;
+}
+
+button {
+    cursor: pointer;
+}
+
+.alert {
+  text-align: center;
+}
+/* nabvbar */
+
+.top-header{
+    position: sticky;
+    background-color: #095a83;
+    width: 100%;
+    margin: 0 0;
+    margin-bottom: 20px;
+  }
+
+.navbar-nav input{
+    margin: 0 10px;
+  }
+
+.navbar-brand a{
+    color:white;
+  }
+
+.navbar-nav a{
+    color:white !important;
+  }
+
+  .dropdown-menu {
+    background-color :black;
+    
+  }
+
+.search-btn{
+    border:none;
+    display: block;
+    width: 35px;
+    height: 35px;
+    border-radius: 20%;
+  }
+
+  
+/*table*/
+
+ .table-style th{
+    background-color: rgba(255, 227, 134, 0.9)
+  }
+  .table-style,.table-style>td{
+    background-color: rgba(255, 255, 255, 0.9)
+  }
+
+.table-size th:nth-of-type(1){
+    width: 40%;
+}
+
+.table-size th:nth-of-type(2){
+    width: 30%;
+}
+
+.table-size th:nth-of-type(3){
+    width: 15%;
+}
+
+.table-size th:nth-of-type(4){
+    width: 15%;
+}
+
+
+
+/*input*/
+
+.input-form {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+@media (min-width: 500px) and (max-width: 800px) {
+    .input-form {
+        width: 70%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+@media (max-width: 500px) {
+    .input-form {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+  }
+
+.input-form textarea {
+    resize: none;
+    outline: none;
+    padding: 10px 10px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    background-color: rgba(252, 252, 252, 0.8);
+  }
+
+  .input-form input {
+    outline: none;
+    border:none;
+    border-radius: 10px;
+    background-color: rgba(252, 252, 252, 0.8);
+    margin-bottom: 20px;
+  }
+
+.input-form button{
+    margin: 0 auto;
+    background: #e0af14;
+    color: #fff;
+    border: none;
+    padding: 5px 25px;
+    border-radius: 10px;
+  }
+
+.input-form label{
+    color: white;
+    font-size: 16px;
+}

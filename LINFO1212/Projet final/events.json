@@ -1,0 +1,278 @@
+{
+  "_id": {
+    "$oid": "5fd9e8bbe4ee5e3b8018b475"
+  },
+  "eventName": "Evénement test",
+  "author": {
+    "_id": {
+      "$oid": "5fd9e825e4ee5e3b8018b474"
+    },
+    "mail": "test@test",
+    "lastName": "Beta",
+    "firstName": "Testeur",
+    "phone": "0123456789"
+  },
+  "briefDescription": "Evénement passé",
+  "description": "Voici un test concernant la création d'un événement avec l'utilisateur Beta Testeur",
+  "eventDate": {
+    "$date": "2020-12-16T00:00:00Z"
+  },
+  "address": "Mendel",
+  "places": 10,
+  "placesLeft": 2,
+  "members": [
+    {
+      "_id": {
+        "$oid": "5fd9f30aa5114625f009869c"
+      },
+      "mail": "jean.denis@gmail.com",
+      "lastName": "Denis",
+      "firstName": "Jean",
+      "phone": "0520164789",
+      "placesRequested": 2
+    },
+    {
+      "_id": {
+        "$oid": "5fd9f64fa5114625f009869e"
+      },
+      "mail": "sofia.valdez@gmail.com",
+      "lastName": "Valdez",
+      "firstName": "Sofia",
+      "phone": "0163528976",
+      "placesRequested": 6
+    }
+  ],
+  "notes": "Ceci est un événement qui est déjà passé, vous ne pouvez donc plus modifier les informations présentes sur cette page "
+}{
+  "_id": {
+    "$oid": "5fd9eae1a5114625f0098698"
+  },
+  "eventName": "Deuxième test",
+  "author": {
+    "_id": {
+      "$oid": "5fd9e825e4ee5e3b8018b474"
+    },
+    "mail": "test@test",
+    "lastName": "Beta",
+    "firstName": "Testeur",
+    "phone": "0123456789"
+  },
+  "briefDescription": "Evénement avec champs optionnels vides",
+  "description": "",
+  "eventDate": {
+    "$date": "2021-04-15T00:00:00Z"
+  },
+  "address": "Mercator 12",
+  "places": 5,
+  "placesLeft": 1,
+  "members": [
+    {
+      "_id": {
+        "$oid": "5fd9f11ea5114625f009869a"
+      },
+      "mail": "john.smith@gmail.com",
+      "lastName": "Smith",
+      "firstName": "John",
+      "phone": "",
+      "placesRequested": 2
+    },
+    {
+      "_id": {
+        "$oid": "5fd9f30aa5114625f009869c"
+      },
+      "mail": "jean.denis@gmail.com",
+      "lastName": "Denis",
+      "firstName": "Jean",
+      "phone": "0520164789",
+      "placesRequested": 1
+    },
+    {
+      "_id": {
+        "$oid": "5fd9f64fa5114625f009869e"
+      },
+      "mail": "sofia.valdez@gmail.com",
+      "lastName": "Valdez",
+      "firstName": "Sofia",
+      "phone": "0163528976",
+      "placesRequested": 1
+    }
+  ],
+  "notes": ""
+}{
+  "_id": {
+    "$oid": "5fd9ecdfa5114625f0098699"
+  },
+  "eventName": "Test 3",
+  "author": {
+    "_id": {
+      "$oid": "5fd9e825e4ee5e3b8018b474"
+    },
+    "mail": "test@test",
+    "lastName": "Beta",
+    "firstName": "Testeur",
+    "phone": "0123456789"
+  },
+  "briefDescription": "Evénement classique",
+  "description": "N'hésitez pas à remplacer la date par celle d'aujourd'hui, l'affichage de l'événement sera différent. Vous pouvez également ajouter des remarques.",
+  "eventDate": {
+    "$date": "2021-05-20T00:00:00Z"
+  },
+  "address": "Lavoisier",
+  "places": 50,
+  "placesLeft": 22,
+  "members": [
+    {
+      "_id": {
+        "$oid": "5fd9f11ea5114625f009869a"
+      },
+      "mail": "john.smith@gmail.com",
+      "lastName": "Smith",
+      "firstName": "John",
+      "phone": "",
+      "placesRequested": 20
+    },
+    {
+      "_id": {
+        "$oid": "5fd9f30aa5114625f009869c"
+      },
+      "mail": "jean.denis@gmail.com",
+      "lastName": "Denis",
+      "firstName": "Jean",
+      "phone": "0520164789",
+      "placesRequested": 3
+    },
+    {
+      "_id": {
+        "$oid": "5fd9f64fa5114625f009869e"
+      },
+      "mail": "sofia.valdez@gmail.com",
+      "lastName": "Valdez",
+      "firstName": "Sofia",
+      "phone": "0163528976",
+      "placesRequested": 5
+    }
+  ],
+  "notes": ""
+}{
+  "_id": {
+    "$oid": "5fd9f29ba5114625f009869b"
+  },
+  "eventName": "Repas de Noël",
+  "author": {
+    "_id": {
+      "$oid": "5fd9f11ea5114625f009869a"
+    },
+    "mail": "john.smith@gmail.com",
+    "lastName": "Smith",
+    "firstName": "John",
+    "phone": ""
+  },
+  "briefDescription": "Repas de Noël sur le principe d'auberge espagnole",
+  "description": "J'organise un repas de Noël pour tous ceux qui se sentent seul.e.s pendant les fêtes. Apportez quelque chose à manger pour contribuer au repas et surtout votre bonne humeur ! Musique et ambiance de Noël garanties !",
+  "eventDate": {
+    "$date": "2020-12-24T00:00:00Z"
+  },
+  "address": "Place de l'église",
+  "places": 20,
+  "placesLeft": 0,
+  "members": [
+    {
+      "_id": {
+        "$oid": "5fd9f30aa5114625f009869c"
+      },
+      "mail": "jean.denis@gmail.com",
+      "lastName": "Denis",
+      "firstName": "Jean",
+      "phone": "0520164789",
+      "placesRequested": 5
+    },
+    {
+      "_id": {
+        "$oid": "5fd9e825e4ee5e3b8018b474"
+      },
+      "mail": "test@test",
+      "lastName": "Beta",
+      "firstName": "Testeur",
+      "phone": "0123456789",
+      "placesRequested": 4
+    },
+    {
+      "_id": "ObjectId('5fd9f64fa5114625f009869e')",
+      "mail": "sofia.valdez@gmail.com",
+      "lastName": "Valdez",
+      "firstName": "Sofia",
+      "phone": "0163528976",
+      "placesRequested": 11
+    }
+  ],
+  "notes": "Evitez d'amener des enfants en bas-âge, il y aura de l'alcool au menu"
+}{
+  "_id": {
+    "$oid": "5fd9f4fba5114625f009869d"
+  },
+  "eventName": "Trail",
+  "author": {
+    "_id": {
+      "$oid": "5fd9f30aa5114625f009869c"
+    },
+    "mail": "jean.denis@gmail.com",
+    "lastName": "Denis",
+    "firstName": "Jean",
+    "phone": "0520164789"
+  },
+  "briefDescription": "Compétition de course à pieds",
+  "description": "Venez participer à ce trail de haute montagne pour les plus aventureux d'entre-vous ! Parcours de 40 km traversant différents pics des Pyrénées , vues et paysages magnifiques garantit ! N'oubliez pas des habits chauds si vous ne voulez pas perdre vos oreilles.",
+  "eventDate": {
+    "$date": "2021-03-21T00:00:00Z"
+  },
+  "address": "Pic des Trois Seigneurs",
+  "places": 100,
+  "placesLeft": 36,
+  "members": [
+    {
+      "_id": {
+        "$oid": "5fd9e825e4ee5e3b8018b474"
+      },
+      "mail": "test@test",
+      "lastName": "Beta",
+      "firstName": "Testeur",
+      "phone": "0123456789",
+      "placesRequested": 4
+    },
+    {
+      "_id": {
+        "$oid": "5fd9f64fa5114625f009869e"
+      },
+      "mail": "sofia.valdez@gmail.com",
+      "lastName": "Valdez",
+      "firstName": "Sofia",
+      "phone": "0163528976",
+      "placesRequested": 60
+    }
+  ],
+  "notes": "Prix de l'inscription : 5€ (paiement sur place)\r\nCadeaux à l'arrivée pour tous les participants. Le planning sera distribuer au stand d'information à votre arrivée sur les lieux"
+}{
+  "_id": {
+    "$oid": "5fd9f74da5114625f009869f"
+  },
+  "eventName": "Manifestation anti-masque",
+  "author": {
+    "_id": {
+      "$oid": "5fd9f64fa5114625f009869e"
+    },
+    "mail": "sofia.valdez@gmail.com",
+    "lastName": "Valdez",
+    "firstName": "Sofia",
+    "phone": "0163528976"
+  },
+  "briefDescription": "Le nom dit tout",
+  "description": "Rassemblement devant la mairie pour militer contre les mesures gouvernementales nous obligeant à porter des masques ! Ceci est une atteinte à la liberté individuelle ! Levez-vous chers concitoyens ! Nous vous attendons nombreux !",
+  "eventDate": {
+    "$date": "2020-12-17T00:00:00Z"
+  },
+  "address": "Mairie d'Ottignies",
+  "places": 500,
+  "placesLeft": 500,
+  "members": [],
+  "notes": "C'est une manifestation pacifiste nous n'accepterons aucun débordement !"
+}

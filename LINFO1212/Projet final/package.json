@@ -1,0 +1,27 @@
+{
+  "name": "Projet_final_groupe_L",
+  "version": "1.0.0",
+  "description": "Planificateur",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "consolidate": "^0.16.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "hogan": "^1.0.2",
+    "jest": "^26.6.3",
+    "mongodb": "^3.6.2",
+    "selenium": "^2.20.0",
+    "selenium-webdriver": "^4.0.0-alpha.7",
+    "socket.io": "^3.0.4",
+    "unirest": "^0.6.0"
+  },
+  "jest": {
+    "verbose": true
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Deprez Emilie, Oreins Manon, Sayez Emily-Yu",
+  "license": "Apache 2.0",
+  "private": true
+}

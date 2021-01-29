@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="perfect-learn/css/bootstrap.min.css">
+    <link rel="stylesheet" href="perfect-learn/css/style.css">
+    <link rel="stylesheet" href="perfect-learn/css/custom.css">
+    <title> Incident </title>
+  </head>
+
+  <body>
+
+    <header class="top-header">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <h1 class="navbar-brand"><a href="/">Ottignie-Louvain-la-Neuve</a></h1>
+          <a class="navbar-brand" href="/"><img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Blason_ville_BE_Ottignies-Louvain-la-Neuve.svg/1200px-Blason_ville_BE_Ottignies-Louvain-la-Neuve.svg.png" alt="logo"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+            <ul class="navbar-nav">
+              <li><form action="/" method = "post"><input type="search" placeholder="Recherche" name="search">
+                <button type="submit" value="search" class="search-btn"><img src="perfect-learn/images/search_icon.png" alt="search"/></button></form></li>
+              <li><div class = "dropdown show">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown">{{username}}</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/disconnection">Déconnexion</a>
+                </div>
+              </div></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+    <div class="padding_left_right full-height">
+      <h2 class="text-center">Signaler un nouvel incident</h2>
+      <form class="input-form" action ="/new_incident" method = "post">
+        <label>Description :</label>
+        <textarea rows="10" name="description"></textarea>
+        <label>Adresse :</label>
+        <textarea  rows="3" name="address"></textarea>
+        <button type="submit" value="Soumettre">Soumettre</button>
+      </form>
+    </div>
+
+    <div class="footer_bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p class="crp">© Copyrights 2019 design by html.design</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <script src="perfect-learn/js/jquery.min.js"></script>
+  <script src="perfect-learn/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

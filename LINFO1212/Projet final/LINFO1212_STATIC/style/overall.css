@@ -1,0 +1,315 @@
+body{background-color: #f3f5ff;
+
+    /*
+    Le pattern de fond du body (ci-dessous) a été utilisé à partir de la resource en libre-servce http://www.heropatterns.com/
+    Le reste du CSS est le fruit du travail de notre groupe.*/
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='20' viewBox='0 0 24 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 18c0-1.105.887-2 1.998-2 1.104 0 2-.895 2.002-1.994V14v6h-4v-2zM0 13.998C0 12.895.888 12 2 12c1.105 0 2 .888 2 2 0 1.105.888 2 2 2 1.105 0 2 .888 2 2v2H0v-6.002zm16 4.004A1.994 1.994 0 0 1 14 20c-1.105 0-2-.887-2-1.998v-4.004A1.994 1.994 0 0 0 10 12c-1.105 0-2-.888-2-2 0-1.105-.888-2-2-2-1.105 0-2-.887-2-1.998V1.998A1.994 1.994 0 0 0 2 0a2 2 0 0 0-2 2V0h8v2c0 1.105.888 2 2 2 1.105 0 2 .888 2 2 0 1.105.888 2 2 2 1.105 0 2-.888 2-2 0-1.105.888-2 2-2 1.105 0 2-.888 2-2V0h4v6.002A1.994 1.994 0 0 1 22 8c-1.105 0-2 .888-2 2 0 1.105-.888 2-2 2-1.105 0-2 .887-2 1.998v4.004z' fill='%23ddd7f5' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+    --bck: white;} body::-webkit-scrollbar{width: 0px;}
+
+
+/* - - - - - COLORS & VARIABLES - - - - - */
+
+HTML{
+  --l0: #ffffff; /*light 0*/
+  --l1: #FAFAFA; /*light 1*/
+  --l2: #F6F6F6; /*light 2*/
+  --l3: #F1F1F1; /*#light 3*/
+  --l4: #EBEBEB; /*light 4*/
+
+  --m1: #E4E4E4; /*moyen 1*/
+  --m2: #CACACA; /*moyen 2*/
+
+  --d1: #66505F; /*dark 1*/
+  --d2: #453741; /*dark 2*/
+  --d3: #2D242B; /*dark 3*/
+
+  --h1: #B934CC; /*highlight 1: bleu moyen*/
+  --h2: #9755D4; /*highlight 2: bleu clair*/
+  --h3: #6982DF; /*highlight 3: brun moyen*/
+  --h4: #41AAE9; /*highlight 4: brun clair*/
+
+  --th-background: var(--h1);
+  --th-color: var(--light-color);
+  --td-background: var(--l1);
+  --td-color: var(--normal-color);
+
+  --sm: 6px;
+  --mo: 12px;
+  --bg: 25px;
+  --lg: 50px;
+  --gi: 100px;
+
+  --grid-gap-sm: var(--sm);
+  --grid-gap: var(--mo);
+  --grid-gap-lg: var(--lg);
+
+  --linear-gradient: linear-gradient(
+      to left,
+      var(--h1),
+      var(--h2),
+      var(--h3),
+      var(--h4)
+      );
+}
+
+/* nom | durée | fonction | retard */
+HTML *{
+  transition: all var(--transt) ease;
+  -webkit-transition: all var(--transt) ease;
+  -moz-transition: all var(--transt) ease;
+  -ms-transition: all var(--transt) ease;
+  -o-transition: all var(--transt) ease;
+  --transt: .4s;
+}
+
+/* - - - - - GENERAL - - - - - */
+
+HTML, HTML *{
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+scroll{
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+*::-webkit-scrollbar{
+  width: 0px;
+}
+
+[class^=bp_] table, .table_js table{
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.table_js, .table_js td{
+    background: transparent !important;
+}
+
+[class^=bp_] input{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  margin: 0px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+[class^=bp_] input.onglet + div, [class^=bp_] input.onglet + label + div{
+  display: none;
+}
+
+[class^=bp_] input.onglet:checked + div, [class^=bp_] input.onglet:checked + label + div{
+  display: block;
+}
+
+
+/* - - - - - GRID - - - - - */
+
+.grid{
+  display: grid;
+  grid-gap: var(--grid-gap);
+  grid-template-columns: var(--columns);
+  margin: var(--mo) 0;
+}
+
+.grid h2, .grid h3, .first{
+    grid-column: 1/-1;
+    width: 100%;
+}
+
+.grid h4{
+    margin-top: 0;
+    margin-bottom: var(--sm);
+}
+
+
+/* - - - - - FLEX - - - - - */
+
+.flexrow, .flexcolumn{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexcolumn{
+  flex-direction: column;
+}
+
+.flexcolumn > *{
+  flex: 1;
+  margin-bottom: var(--grid-gap);
+}
+
+.flexrow > *{
+  flex: 1;
+  margin-right: var(--grid-gap);
+}
+
+.flexcolumn > *:last-child, .flexrow > *:last-child{
+  margin: 0px !important;
+}
+
+.no-extend, fill{
+    flex: 0 0 auto !important;
+}
+
+.extend{
+    flex: 1 1 auto !important;
+}
+
+ul.flexrow{
+    list-style: none;
+    padding: 0 !important;
+}
+
+ul.flexrow li{
+    margin: 0!important;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  grid-gap: 20px;
+  --max: 250px;
+}
+
+.flex > * {
+  flex: 1 0 var(--max);
+  margin: 0 !important;
+}
+
+.flex .first{
+  flex: 0 0 100% !important;
+}
+
+.none{
+    display: none !important;
+}
+
+
+/* - - - - - MAIN - - - - - */
+
+body{
+    min-width: 1000px;
+}
+
+main{
+    width: 70%;
+    margin: auto;
+    padding-bottom: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+    main{
+        width: 95%;
+    }
+}
+
+
+/* - - - - - DIVERS - - - - - */
+
+.float-left{
+    float: left;
+    margin: 0 !important;
+}
+
+.float-right{
+    float: right;
+    margin: 0 !important;
+}
+
+
+/* - - - - - NAVBAR - - - - - */
+
+nav{
+    width: 100%;
+    background: -webkit-linear-gradient(
+        to left,
+        var(--h1),
+        var(--h2),
+        var(--h3),
+        var(--h4)
+        );
+    background: -o-linear-gradient(
+        to left,
+        var(--h1),
+        var(--h2),
+        var(--h3),
+        var(--h4)
+        );
+    background: var(--linear-gradient);
+    padding: var(--mo);
+    box-shadow: 0 0 3px var(--d1);
+
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+
+    box-sizing: border-box;
+}
+
+nav ul{
+    margin: 0;
+}
+
+nav li{
+    padding: 0 var(--sm);
+}
+
+#logo-nav img{
+    max-height: var(--lg);
+}
+
+
+/* - - - - - FOOTER - ARROW NAV - - - - - */
+
+footer{
+    width: auto;
+    height: var(--sq);
+    --sq: 40px;
+    position: fixed;
+    bottom: var(--bg);
+    left: var(--bg);
+}
+
+footer a{
+    width: var(--sq);
+    height: var(--sq);
+}
+
+footer svg{
+    width: 100%;
+    height: 100%;
+}
+
+footer path{
+    fill: var(--h1);
+}
+
+footer a:hover path{
+    fill: var(--h4);
+}
+
+a[name="top"] {
+    position: absolute;
+    top: 0;
+}
+
+.hide {
+  display:none;
+}

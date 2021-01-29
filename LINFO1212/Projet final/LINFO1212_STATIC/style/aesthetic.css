@@ -1,0 +1,364 @@
+/* - - - - - FONTS : main - - - - - */
+html{
+    color: var(--normal-color);
+    --normal-color: var(--d3);
+    --light-color: var(--l1);
+
+    font-family: 'Mulish';
+    font-size: 14px;
+    line-height: var(--line-height);
+    --line-height: 18px;
+    text-align: justify;
+}
+
+.light-color, .light-color *{
+    color: var(--light-color);
+}
+
+a, a:hover, a:visited{
+  color: var(--d1);
+  text-decoration: none;
+  cursor: crosshair;
+}
+
+a:hover{
+  border-bottom: 1px solid var(--m2);
+}
+
+.light-color a{
+    color: var(--l1);
+}
+
+.light-color a:hover{
+    color: var(--m1);
+    border-color: var(--m2);
+}
+
+input, label, button{
+  color: var(--h2);
+  cursor: crosshair;
+}
+
+label{
+    color: inherit;
+}
+
+input[type=text]:hover, input[type=password]:hover{
+  color: unset;
+}
+
+u, a{
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+a{
+    border-color: var(--m2);
+}
+
+::selection{
+  background: var(--m2);
+  color: var(--l2);
+}
+
+.button-alike{
+    display: inline-block;
+    padding: var(--sm) var(--mo);
+    border: 1px solid;
+    position: relative;
+
+    font-family: 'Playfair Display';
+    font-weight: normal;
+
+    --hover-color: var(--h4);
+    --hover-shadow: var(--m2);
+
+    --active-background: var(--h2);
+    --active-color: var(--l1);
+}
+
+.light-color .button-alike{
+    --hover-color: var(--m1);
+    --hover-shadow: var(--l0);
+
+    --active-background: var(--h2);
+    --active-color: var(--l1);
+}
+
+.button-alike:hover{
+    background: var(--hover-background);
+    border-color: var(--hover-color) !important;
+    box-shadow: 0 0 2px var(--hover-shadow);
+
+    color: var(--hover-color) !important;
+}
+
+.button-alike:active{
+    background: var(--active-background);
+
+    color: var(--active-color) !important;
+}
+
+.button-alike.plain{
+    background: rgba(240, 240, 240, 0.9);
+
+    border-color: var(--col) !important;
+    color: var(--col) !important;
+    --col: var(--h4);
+}
+
+
+/* - - - - - USEFULL : buttons & co - - - - - */
+
+input{
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid;
+    padding: 0 var(--sm);
+}
+
+textarea{
+    width: 100%;
+    min-height: 100px;
+    outline: none;
+
+    font-family: 'Mulish';
+}
+
+input::placeholder{
+    color: inherit;
+    opacity: .6;
+}
+
+button{
+    background: transparent;
+    outline: none;
+    padding: unset;
+}
+
+button[type=submit][value=search]{
+    background: transparent;
+    outline: none;
+    border: 0;
+}
+
+input[type=search] + button[type=submit][value=search]{
+    margin-left: -10px;
+}
+
+button[type=submit][value=search] img{
+    max-height: 14px;
+}
+
+
+/* - - - - - FONTS : hX - - - - - */
+
+h1{
+    font-family: 'Abril Fatface';
+    font-size: 22px;
+    font-weight: normal;
+}
+
+h1::before{
+    content: '— ';
+}
+
+h1 a, h1 a:hover, h1 a:active{
+    color: inherit;
+    border-bottom: 0;
+}
+
+h2{
+    padding: var(--mo) var(--bg);
+    border-bottom: 1px solid var(--h2);
+
+    color: var(--h1);
+    font-family: 'Abril Fatface';
+    font-size: 20px;
+    font-weight: normal;
+}
+
+h2::before{
+    content: '—';
+    margin-right: var(--mo);
+}
+
+h2.center-align:after{
+    content: '—';
+    margin-left: var(--mo);
+}
+
+h3{
+    background: var(--l2);
+    margin: var(--lg) auto var(--sm);
+    padding: var(--mo) var(--bg);
+    border-bottom: 1px solid;
+
+    color: var(--h1);
+}
+
+h4{
+    font-family: 'Playfair Display';
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.simple h4{
+    margin-top: var(--bg);
+    padding-bottom: var(--sm);
+    border-bottom: 1px solid;
+}
+
+.simple h4:first-child{
+    margin-top: 0;
+}
+
+h5{
+    margin: 0;
+
+    font-family: 'Playfair Display';
+    font-size: 1.1em;
+}
+
+h5, h5 a{
+    border: 0 !important;
+
+    color: var(--h1) !important;
+    font-weight: normal;
+}
+
+h5 a:hover{
+    color: var(--h3) !important;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+h6{
+    display: inline-block;
+    font-size: 14px;
+    padding: 0 var(--sm) var(--sm);
+    border-bottom: 1px solid;
+    margin: 0;
+}
+
+nav h6{
+    position: relative;
+}
+
+h6 a:not(.button-alike){
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+lgn{
+  display: block;
+  width: 100%;
+  height: 0;
+  border-bottom: 1px solid var(--l4);
+  margin-bottom: var(--grid-gap);
+}
+
+
+/* - - - - - BLOCKS - - - - - */
+
+.simple{
+  margin: var(--grid-gap) 0;
+  padding: var(--mo);
+}
+
+.small{
+  padding: var(--sm);
+}
+
+.nomargin{
+  margin: 0 !important;
+}
+
+.nopadding{
+  padding: 0 !important;
+}
+
+.noborder{
+    border: 0 !important;
+}
+
+.light{
+  background: var(--l1);
+}
+
+.middle{
+  background: var(--m1);
+}
+
+.dark{
+  background: var(--h3);
+
+  color: var(--l4);
+}
+
+.h1{background: var(--h1); color: var(--light-color);}
+.h2{background: var(--h2); color: var(--light-color);}
+.h3{background: var(--h3); color: var(--light-color);}
+.h4{background: var(--h4); color: var(--light-color);}
+
+.transparent{
+    background: transparent;
+}
+
+.lowercase{
+  text-transform: lowercase;
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+
+.left-align, .left-align *{
+  text-align: left !important;
+}
+
+.center-align, .center-align *{
+  text-align: center !important;
+}
+
+.right-align, .right-align *{
+  text-align: right !important;
+}
+
+.justify-align, .justify-align *{
+  text-align: justify !important;
+}
+
+
+/* - - - - - TABLES - - - - - */
+
+
+main table{
+    width: 100%;
+    border-collapse: collapse;
+
+    --radius: 5px;
+}
+
+main th{
+    padding: var(--mo);
+    background: var(--th-background);
+
+    color: var(--th-color);
+}
+
+main td{
+    background: var(--td-background);
+    padding: var(--mo);
+}
+
+
+/* - - - - - GRID - - - - - */
+
+.grid h4{
+    background: var(--th-background);
+    padding: var(--mo);
+
+    color: var(--th-color);
+}

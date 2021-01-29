@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{user.name}} - Éditer mon profil</title>
+    <link rel="icon" type="image/png" href="/images/logo_calendar.png">
+
+
+    <!----- IMPORT DES SCRIPTS & FEUILLES DE STYLE----->
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Mulish:wght@200&family=Oswald&family=Playfair+Display&family=Rozha+One&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="/style/overall.css">
+    <link rel="stylesheet" href="/style/aesthetic.css">
+    <link rel="stylesheet" href="/style/pages.css">
+    <script src="/js/overall.js"></script>
+    <script type="text/javascript" src="/js/validation.js"></script>
+</head>
+
+<body>
+    <a name="top"></a>
+    <header>
+        <nav>
+            <ul class="flexrow light-color">
+                <li id="logo-nav" class="no-extend">
+                    <img src="/images/logo_calendar.png" alt="Logo"/>
+                </li>
+                <li id="title-nav" class="no-extend table_js left-align">
+                    <h1><a href="/" title="Retour à la page principal">Mon planificateur</a></h1>
+                </li>
+                <li class="extend">
+                </li>
+                <form action="/search" method="post" class="no-extend table_js">
+                    <input type="search" name = "research" placeholder="Recherche">
+                    <button type="submit" value="search" class="valid-searh"><img src="https://img.icons8.com/android/24/000000/search.png" alt="Recherche"/></button>
+                </form>
+                <li id="username-nav" class="no-extend table_js">
+                    <h6>
+                        <ul id="link_profil">
+                            <li><a href="/description.html" class="button-alike plain">Guide du planificateur</a></li>
+                            <li><a href="/aboutUs.html" class="button-alike plain">Page "à propos"</a></li>
+                        </ul>
+
+                        Bienvenue {{user.name}} — <a href="/disconnection">déconnexion</a></h6>
+                </li>
+        </nav>
+    </header>
+
+
+    <main>
+        <h2 class="center-align">Modifier mon profil</h2>
+        <blockquote class="center-align"><a href="/profile.html/{{user.id}}" class="button-alike">
+            (retourner sur mon profil sans enregistrer les modifications)
+        </a></blockquote>
+
+
+        <section class="flex">
+            <div class="form_edit_profil">
+                <h3>Modifier mes informations personnelles</h3>
+
+                <form name="updateProfile" action="/updateProfile" method="post">
+                    <table class="nomargin">
+                        <tr>
+                            <th>Nom</th>
+                            <td><input type="text" name ="lastName" placeholder="Écrire ici" value="{{userInfos.lastName}}" required></td>
+                        </tr>
+
+                        <tr>
+                            <th>Prénom</th>
+                            <td><input type="text" name ="firstName" placeholder="Écrire ici" value="{{userInfos.firstName}}" required></td>
+                        </tr>
+
+                        <tr>
+                            <th>Numéro de téléphone</th>
+                            <td><input type="tel" name ="phone" placeholder="Optionnel" value="{{userInfos.phone}}" pattern="[0-9]{0,}$" ></td>
+                        </tr>
+
+                        <tr>
+                            <th>Adresse mail</th>
+                            <td><input type="email" name ="mail" placeholder="Écrire ici" value="{{userInfos.mail}}" pattern="[a-zA-Z0-9._%+-]{1,}$+@[a-zA-Z0-9._]{1,}$+\.[a-zA-Z]{2,}$" required></td>
+                        </tr>
+
+                        <tr>
+                            <th>Mot de passe</th>
+                            <td><input type = "password" name="password" placeholder="Écrire ici" required></td>
+                        </tr>
+                    </table>
+
+                    <blockquote class="center-align">
+                        {{#error_mail_already_exist}}<br>L'addresse mail est déjà utilisée<br>{{/error_mail_already_exist}}
+                        {{#error_password}}<br>Mot de passe incorrect<br>{{/error_password}}
+                        <br><button class="button-alike" type="submit" value ="Modifier">Modifier</button>
+                    </blockquote>
+            	</form>
+            </div>
+
+            <div class="form_edit_profil">
+                <h3>Modifier mon mot de passe</h3>
+
+                <form name="editPassword" action="/editPassword" method="post">
+                    <table class="nomargin">
+                        <tr>
+                            <th>Ancien mot de passe</th>
+                            <td><input type="password" name ="oldPassword" placeholder="Écrire le mot de passe ici" required ></td>
+                        </tr>
+                        <tr>
+                            <th>Nouveau mot de passe</th>
+                            <td><input type="password" name ="newPassword" placeholder="Écrire le mot de passe ici" required onchange="return checkNewPassword()"></td>
+                        </tr>
+                        <tr>
+                            <th>Vérification</th>
+                            <td><input type="password" name ="passwordCheck" placeholder="Répéter le mot de passe ici" required onchange="return checkNewPassword()"></td>
+                        </tr>
+                    </table>
+
+                    <blockquote class="center-align">
+                        {{#error_old_password}}<br>Ancien mot de passe incorrect<br>{{/error_old_password}}
+                        <br><button class="button-alike" type="submit" value ="Modifier">Modifier</button>
+                    </blockquote>
+
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <footer class="flexrow">
+        <a href="#top" class="noborder" title="Aller en haut de la page">
+            <svg viewBox="0 0 320 512" width="100" title="angle-up">
+                <path d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z" />
+            </svg>
+        </a>
+
+        <a href="#bottom" class="noborder" title="Aller en bas de la page">
+            <svg viewBox="0 0 320 512" width="100" title="angle-down">
+                <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" />
+            </svg>
+        </a>
+    </footer>
+
+
+    <a name="bottom"></a>
+</body>
+</html>

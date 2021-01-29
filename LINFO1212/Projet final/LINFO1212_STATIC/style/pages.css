@@ -1,0 +1,160 @@
+/* - - - - - GRIDS FOR EVENTS - - - - - */
+
+.main_grid, .no_inscription_grid{
+    --columns: 200px 1fr minmax(auto, 200px) repeat(2, minmax(100px, auto));
+    --grid-gap: 0;
+}
+
+.main_grid.today, #todayEvent{
+    --columns: 200px 1fr repeat(2, minmax(100px, auto));
+}
+
+.main_grid > *{
+    text-align: left;
+}
+
+.flex.search_person{
+    grid-gap: var(--sm);
+}
+
+
+
+/* - - - - - EVENT PAGE - - - - - */
+
+.desc_event{
+    max-height: var(--height-event);
+    --height-event: 250px;
+    overflow: auto;
+}
+
+.desc_event textarea{
+    background: transparent;
+    height: 100%;
+    resize: none;
+    border: 0;
+    font-size: 1em;
+}
+
+.infos_event, .profil_event{
+    margin-top: var(--mo);
+    --max: 180px;
+}
+
+#author_option_event{
+    margin-top: var(--bg);
+}
+
+#author_option_event > *{
+    font-size: 14px;
+    text-align: center;
+}
+
+
+
+/* - - - - - LOG IN & OUT - - - - - */
+.bp_login{
+    width: auto;
+    margin: auto;
+}
+
+.bp_login td{
+    width: 300px;
+}
+
+.bp_login input{
+    width: 100%;
+}
+
+
+
+/* - - - - - MENU LINKS - - - - - */
+
+#link_profil{
+    display: block;
+    width: 100%;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    --mo-m: calc(-1 * var(--mo));
+    transform: translateY(var(--mo-m));
+    opacity: 0;
+}
+
+#link_profil > * {
+    margin: 0;
+    margin-top: var(--mo) !important;
+    padding: 0;
+
+    list-style-type: none;
+}
+
+#link_profil a{
+    display: block;
+    width: 100%;
+}
+
+h6:hover #link_profil{
+    height: 200px;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+
+
+/* - - - - - OTHER FORMS - - - - - */
+
+.in-form th{
+    width: 300px;
+    padding: var(--mo);
+}
+
+.in-form input{
+    width: 100%;
+}
+
+.flex_search{
+    --max: 180px;
+}
+
+#change_inscription_form, #unsubscribe_form, #delete_event_form{
+    display: none;
+}
+
+#unsubscribe_form button[type="submit"]{
+    display: block;
+    width: 100%;
+}
+
+.form_edit_profil input{
+    display: block;
+    width: 100%;
+}
+
+
+
+
+/* - - - - - ABOUT US - - - - - */
+
+.bp_about h4{
+    margin-bottom: 0;
+    padding: 0;
+    border: 0;
+}
+
+.bp_about h4 a{
+    cursor: auto;
+
+    color: var(--h1) !important;
+}
+
+.photos_about {
+    width: 100%;
+}
+
+.h4 h5{
+    color: var(--l0) !important;
+}

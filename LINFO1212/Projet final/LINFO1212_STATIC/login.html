@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Se connecter</title>
+    <link rel="icon" type="image/png" href="/images/logo_calendar.png">
+
+
+    <!----- IMPORT DES SCRIPTS & FEUILLES DE STYLE----->
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Mulish:wght@200&family=Oswald&family=Playfair+Display&family=Rozha+One&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="/style/overall.css">
+    <link rel="stylesheet" href="/style/aesthetic.css">
+    <link rel="stylesheet" href="/style/pages.css">
+    <script src="/js/overall.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="flexrow light-color">
+                <li id="logo-nav" class="no-extend">
+                    <img src="/images/logo_calendar.png" alt="Logo"/>
+                </li>
+                <li id="title-nav" class="extend table_js left-align">
+                    <h1><a href="/" title="Retour à la page principal">Mon planificateur</a></h1>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="center-align">Connexion</h2>
+
+        <form action="/login" method="post">
+            <table class="bp_login">
+                <tr>
+                    <th>Adresse mail</th>
+                    <td><input type="email" , name="mail" placeholder="Ex: john.doe@hotmail.com" required></td>
+                </tr>
+
+                <tr>
+                    <th>Mot de passe</th>
+                    <td><input type="password" name="password" placeholder="Écrire ici" required></td>
+                </tr>
+            </table>
+
+            <blockquote class="center-align">
+                <br><button class="button-alike" type="submit" value="Se connecter">Se connecter</button>
+
+		        {{#error_connection}}
+                    <br><br><h5>Adresse mail ou mot de passe incorrect.</h5>
+                {{/error_connection}}
+                <br><br>
+                    <a href="/register.html">S'enregistrer</a>
+            </blockquote>
+        </form>
+    </main>
+</body>
+</html>
