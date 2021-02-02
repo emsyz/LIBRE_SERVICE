@@ -175,11 +175,13 @@ IMPORTANT : UTILISATION DES FILTRES
 
 CODE POUR RAJOUTER UN ELEMENT :
 
-<!----- EXEMPLE ELEMENT ----->
-    <div class="element_section m asian art-medias gay divorced poor">
+<!----- DEBUT ELEMENT ----->
+    <!--modifier les différents filtre1234 par les vrais noms
+        de filtres comme définis au début du code -->
+    <div class="element_section filtre1 filtre2 filtre3 filtre4">
         <div class="bp_element">
-            <mg class="name_element">prénom nom</mg>
 
+            <mg class="name_element">prénom nom</mg>
             <img src="URL_AVATAR" class="avatar_element"/>
 
             <scroll class="infos_element">
