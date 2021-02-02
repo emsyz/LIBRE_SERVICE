@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+<!--
+        F A C E C L A I M . P O U R . V O S . F O R U M S
+
+            NOTES D'UTILISATION :
+
+                - précisions de base :
+
+                le code est en libre service. vous pouvez
+                y modifier le HTML et le CSS qui se trouve
+                sur ce fichier mais merci de ne pas enlever
+                les crédits. n'hésitez pas à me contacter
+                en cas de problème dans les mps de mon tumblr
+                https://poesiescendrees.tumblr.com/
+
+                la fonctionnalité de filtrage est réalisée par
+                https://magnusthemes.tumblr.com/post/171696773190/isotope-combination-filtering
+
+                le code est commenté au maximum
+                afin que vous puissiez vous y retrouver
+                le plus facilement possible, avec une
+                connaissance minimale en CSS & HTML.
+
+                petite note : tous les liens ont l'attribut
+                <a href="#top">...</a>, il faut remplacer #top
+                par votre lien (comme ça s'il n'est pas rempli,
+                il renvoie simplement au haut de votre fenêtre).
+
+                le fichier ici risque d'être potentiellement
+                trop lourd pour tumblr à un certain moment,
+                c'est déjà arrivé avec un code de longueur
+                similaire sur un de mes anciens forums.
+                je vous suggère de compacter un maximum
+                de choses (à commencer par supprimer
+                tous les commentaires que j'ai laissés
+                dans le code mdr, ils prennent pas mal de
+                place déjà), dans le CSS comme dans le HTML.
+                ce site peut amplement faire l'affaire pour compresser :
+                https://www.textfixerfr.com/html/compresser-du-code-html.php
+                (vous n'êtes pas obligé d'y passer l'entièreté
+                du code, sous peu que cela devienne rapidement illisible;
+                vous pouvez vous borner à réduire seulement
+                certaines parties).
+
+                de plus je vous conseille de sauvegarder
+                le fichier autre part (sur l'ordi d'un.e des admins
+                ou quelque chose comme ça par exemple) à chaque
+                modification, on n'est jamais à l'abris d'un bug
+                avec des codes de cette taille <3
+
+
+
+                - hébergement externe partiel du CSS :
+
+                une partie du CSS est hébergée ailleurs,
+                afin d'une part de préserver la place et
+                la lisibiltié au sein du code. les valeurs
+                modifiables par vous (couleurs + grandeurs
+                + polices + styles des éléments du faceclaim)
+                sont laissées ci-dessous.
+
+
+
+                - variables :
+
+                ces dernières permettent de modifier les couleurs
+                et les grandeurs dans le code, leur utilisation est
+                indispensable ! je vous renvoie à des ressources
+                en ligne pour comprendre le concept :
+                https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties
+                (lire jusqu'à la rubrique "Utilisation Simple"
+                comprise suffit amplement, puisque vous n'avez
+                qu'à modifier le contenu des variables prédéfinies).
+                ATTENTION à n'inclure ni espaces ni accentuation.
+
+
+
+                - fonction "calc()" :
+
+                la fonction permet de faire des calculs et si vous voulez
+                y toucher n'hésitez pas à aller checker son fonctionnement
+                https://developer.mozilla.org/fr/docs/Web/CSS/calc()
+                encore une fois, les quelques premières lignes de la page
+                suffisent, l'utilisation de calc est explicite.
+                à noter que les résultats de calc peuvent être attribués
+                à des propriétés directes tout comme à des variables,
+                et peut également prendre des variables comme argument :
+
+                    width: calc(100% - 30% + 5%) --- > donne 75%
+                    height : calc(100vh - 30px) --- > donne 100% de la
+                                                      hauteur de la fenêtre
+                                                      - 30px
+                    margin-top : calc(var(--width) * 2 * var(--petit)
+                                                --- > domme variable --width
+                                                      fois 2 variables --petit
+                    etc.
+-->
+
+
+    <!-- TITRE de la page apparaissant dans l'onglet -->
+    <title>F A C E C L A I M</title>
+
+    <!-- FAVICON de la page apparaissant dans l'onglet -->
+    <link rel="icon" href="https://img.icons8.com/small/16/000000/small-hearts.png">
+
+    <!-- IMPORT de polices d'écriture via google fonts,
+         n'hésitez pas à modifier et/ou ajouter les vôtres -->
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Mulish:wght@200&family=Oswald&family=Playfair+Display&family=Rozha+One&display=swap" rel="stylesheet">
+
+
+
+
+    <!-------------------- CSS STYLE IMPORT : MODIFIABLES -------------------->
+    <style>
+        :root{
+
+         /*les variables qui suivent ne sont pas nécessaires
+           et peuvent franchement être ignorées, modifiées
+           voire supprimées. elles forment une palette dont
+           vous pouvez utiliser les couleurs à volonté :*/
+          --l0: #ffffff; /*light 0*/
+          --l1: #FAFAFA; /*light 1*/
+          --l2: #F6F6F6; /*light 2*/
+          --l3: #F1F1F1; /*#light 3*/
+          --l4: #EBEBEB; /*light 4*/
+
+          --m1: #E4E4E4; /*moyen 1*/
+          --m2: #CACACA; /*moyen 2*/
+
+          --d1: #50665F; /*dark 1*/
+          --d2: #384540; /*dark 2*/
+          --d3: #242D2A; /*dark 3*/
+
+          --h1: #CDA871; /*highlight 1: bleu moyen*/
+          --h2: #D9BC91; /*highlight 2: bleu clair*/
+          --h3: #81AEA9; /*highlight 3: brun moyen*/
+          --h4: #A0BBBB; /*highlight 4: brun clair*/
+
+
+          /*marges utilisées, remplacez uniformément ici
+            ou remplacez-les ci-dessous au cas par cas*/
+          --petit: 6px;
+          --moyen: 12px;
+          --grand: 25px;
+
+          /*petites marges habituelles,
+            TRES important de conserver cette
+            variable même si sa valeur peut
+            être modifiée (nombre en px)*/
+          --grid-gap: var(--moyen);
+
+
+
+
+
+            /*- - - - - VARIABLES // LARGEURS & HAUTEURS */
+
+            /*largeur barre de navigation à gauche*/
+            --width-header: 300px;
+            --width-header-1200: 200px; /*nouvelle largeur
+                                          quand la fenêtre est à
+                                          moins de 1200px de largeur*/
+
+            /*grandeur icône marge supérieure*/
+            --width-icon-header: 30px;
+
+            /*largeur du bloc des filtres*/
+            --width-item-container: 30%;
+
+            /*largeur des éléments principaux du faceclaim*/
+            --width-element-section: 180px;
+
+
+            /*hauteur des avatars*/
+            --height-avatar-element: 120px;
+
+            /*grandeur maximale des textes descriptifs*/
+            --max-height-infos-element: 80px;
+
+
+
+
+
+            /*- - - - - VARIABLES // MARGES INTERNES ET EXTERNES
+                        ATTENTION : certaines font appel à d'autres variables,
+                        afin d'avoir la même grandeur que ces dernières,
+                        utilisent des fonctions afin de calculer des grandeurs,
+                        et parfois même les deux en même temps.
+                        (par exemple ci-dessous le --margin-inner-container
+                        vaut la moitié du --padding-body, ce qui fait
+                        que juste changer cette 2e variable influence
+                        également la 1ère.)
+                        libre à vous de changer cela mais l'entièreté du code
+                        est pensé afin de s'adapter à la variation des quelques
+                        valeurs numériques indiquées et à la variation
+                        des marges de base --petit, --moyen et --grand.
+            */
+
+            /*marge intérieure entre le fond coloré / pattern image
+            et les éléments intérieurs du faceclaim. pour l'instant,
+            dépendent de --padding-body (à éviter de modifier)*/
+            --margin-inner-container: calc(0.5 * var(--padding-body));
+
+            /*espacement entre les liens de la barre de navigation (à gauche)*/
+            --margin-bottom-links-header: var(--petit);
+
+            /*marges entre les éléments du faceclaim. pour l'instant,
+            la même que --padding-body.*/
+            --margin-element-section: var(--padding-body);
+
+
+            /*largeur des bords externes de la page
+            (où il y a @nom forum + crédits)
+            attention, vous l'avez vu mais
+            plusieurs autres variables dépendent
+            de celle-ci à moins de changement de votre
+            part donc faites-y attention.*/
+            --padding-body: 60px;
+            --padding-body-1200: 40px; /*nouvelles largeur
+                                         quand la fenêtre
+                                         est à moins de 1200px
+                                         de largeur*/
+
+            /*marges intérieures de la barre de navigation*/
+            --padding-header: 30px;
+
+            /*marges intérieures dans les bords externes de la page
+            (pour les @nom forum + lien + crédits)*/
+            --padding-asides: var(--moyen);
+
+            /*marges intérieures du bloc des filtres*/
+            --padding-filters: var(--moyen);
+
+            /*le bloc de filtres se positionne horizontalement
+              quand la fenêtre est à moins de 800px, la variable
+              ci-dessous exprime les marges entre les différents filtres*/
+            --padding-filter-item-container-800: var(--moyen);
+
+            /*marge intérieure des éléments du faceclaim*/
+            --padding-element: var(--petit);
+
+            /*marges intérieures des noms des éléments*/
+            --padding-name-element: var(--petit);
+
+
+
+
+
+            /*- - - - - VARIABLES // GLOBAL*/
+
+            /*couleur et fond du texte sélectionné par la souris*/
+            --background-selection: var(--h2);
+            --color-selection: var(--l0);
+
+            /*
+                ATTENTION : je pense que les 3 variables ci-dessous
+                ne s'affichent nulle part mais ça définit
+                le comportement par défaut du texte sur la
+                page au cas où il y a quelque chose qui bug /
+                un truc rajouté en plus (on ne sait jamais mdrrr)
+            */
+            --color-links: var(--d1); /*couleur des liens*/
+            --color-hover-links: var(--h2); /*couleur des liens au survol*/
+            --color-main: var(--d3); /*couleur texte général*/
+
+
+
+
+
+            /*- - - - - VARIABLES // HEADER */
+
+            /*fond de la barre de navigation à gauche*/
+            --background-header: var(--d1);
+
+            /*couleur de texte de la barre de navigation*/
+            --color-general-header: var(--l0);
+
+            /*couleur des liens de la barre de navigation*/
+            --color-links-header: var(--l0);
+
+            /*couleur du titre de la barre de navigation*/
+            --color-title-header: var(--l0);
+
+
+
+
+
+            /*- - - - - VARIABLES // MAIN */
+
+            /*couleur des bords externes (avec @nom forum + crédits)*/
+            --border-main: var(--l0);
+
+            /*fond du bloc central. si vous modifiez simplement
+            pour un autre pattern de fond, changez uniquement l'url.
+            sinon, changez "url(XXX) repeat" par :
+
+                - "url(XXX) 50% 50% / cover" si vous préférez mettre
+                une image représentant quelque chose; cela la recadrera
+                automatiquement.
+
+                - une couleur #XXXXXX si vous préférez un fond simple.
+
+                - "linear-gradient(XXX)" si vous voulez un dégradé.
+
+                - etc.*/
+            --background-main: url(https://images2.imgbox.com/9a/30/A9bf8nSk_o.png) repeat;
+
+            /*couleur de @nom forum + crédits*/
+            --color-aside-main: var(--d3);
+
+            /*couleur des liens en bord extérieur (à côté de @nom forum)*/
+            --color-link-aside-main: var(--d3);
+
+
+
+
+
+            /*- - - - - VARIABLES // BLOC DES FILTRES */
+
+            /*alignement des filtres sur la page
+              (left, right ou justify)*/
+              --align-filters: left;
+
+            /*fond du bloc des filtres*/
+            --background-filters: var(--l1);
+
+            /*couleur du titre du bloc de filtres*/
+            --color-title-filters: var(--d3);
+
+            /*couleur des noms des catégories de filtres*/
+            --color-name-filters: var(--d3);
+
+            /*couleur des propositions de filtres (non sélectionnés)*/
+            --color-filters: var(--d3);
+
+            /*couleur des filtres sélectionnés*/
+            --color-links-checked-filters: var(--h3);
+
+            /*couleur au survol d'un filtre*/
+            --color-links-hover-filters: var(--h2);
+
+
+
+
+
+            /*- - - - - VARIABLES // ELEMENTS
+                        ce sont les variables associées
+                        à la présentation par défaut des
+                        éléments du faceclaim. si vous
+                        modifiez leur présentation,
+                        vous pouvez vous resservir de
+                        ces variables ou les supprimer,
+                        à votre convenance bien sûr.
+            */
+
+            /*fond des éléments*/
+            --background-elements: var(--l1);
+
+            /*fond des titres des éléments (noms de persos)*/
+            --background-title-elements: var(--d1);
+
+            /*couleur des titres des éléments (noms de persos)*/
+            --color-title-elements: var(--l0);
+
+            /*couleur générale (dans la description) des éléments*/
+            --color-elements: var(--d3);
+
+            /*taille de police des infos éléments*/
+            --font-size-infos-element: 10px;
+
+            /*espacement entre les lignes des infos éléments*/
+            --line-height-infos-element: 11px;
+
+            /*couleur des liens généraux des éléments*/
+            --color-links-elements: var(--h4);
+
+            /*couleur des liens généraux à leur survol des éléments*/
+            --color-links-hover-elements: var(--h2);
+
+            /*largeur des liens ronds au bas des éléments*/
+            --size-round-links-elements: 20px;
+
+            /*taille des icônes des liens ronds au bas des éléments
+              (à adapter en fonction de --size-round-links-elements)*/
+            --font-size-round-links-elements: 13px;
+
+            /*couleur des liens ronds au bas des éléments*/
+            --color-round-links-elements: var(--h4);
+
+            /*couleur des liens ronds à leur survol au bas des éléments*/
+            --color-round-hover-links-elements: var(--h2);
+
+
+
+        /*MISE EN FORME GENERALE :
+          seule la propriété "color: var(--color-main)"
+          devrait être ineffective car réécrite pour chacun
+          des blocs du faceclaim mais je la garde au cas où.
+          le reste définit le comportement général des polices.
+        */
+          color: var(--color-main);
+          font-family: var(--main-police);
+          --main-police: 'Mulish', 'Verdana', sans-serif;
+          font-size: 12px;
+          line-height: var(--line-height);
+          --line-height: 15px;
+          text-align: justify;
+        }
+
+        /*
+            LE RESTE EST A VOTRE CONVENANCE :
+            libre à vous de modifier et/ou de rajouter des choses.
+            vous pouvez réécrire par-dessus le CSS par défaut
+            mais je vous déconseille de le faire trop souvent :
+            le chargement de page risque d'être moins efficace.
+
+            j'ai laissé toutes les mises en forme des polices
+            ci-dessous puisque c'est également le plus susceptible
+            de changer selon vos désirs.
+
+            n'hésitez pas à checker ce CSS par défaut
+            si vous voulez regarder une propriété particulière,
+            ou passer directement par l'inspection de la page
+            (clique droit sur l'élément à analyser -> inspecter
+            et ça vous ouvre le volet d'inspection directement dessus)
+
+            souvenez-vous également que si votre faceclaim contient
+            trop d'éléments dedans, le fichier risque d'être
+            trop gros pour tumblr. n'hésitez donc pas à faire des
+            sauvegardes extérieures à chaque modification et compresser ce
+            qui peut l'être (sans rendre tout illisible en même temps ahah).
+
+            enfin, vous pouvez me contacter dans les mps de mon tumblr
+            https://poesiescendrees.tumblr.com/
+        */
+    </style>
+
+
+
+
+    <!-------------------- CSS STYLE IMPORT : STYLE -------------------->
+    <style>
+
+        /* - - - - - FONTS - - - - - */
+
+        a{
+          color: var(--color-links);
+        }
+
+        a, a:visited{
+          text-decoration: none;
+        }
+
+        a:hover, input:hover, label:hover{
+          color: var(--color-hover-links);
+          cursor: crosshair;
+        }
+
+        input[type=text]:hover{
+          color: unset;
+        }
+
+        u, a{
+          text-decoration: none;
+          border-bottom: 1px solid;
+        }
+
+        ::selection{
+          background: var(--background-selection);
+          color: var(--color-selection);
+        }
+
+        h2{
+            margin: 0;
+            padding: 0 var(--grand);
+        }
+
+        h2::before {
+            content: '— ';
+        }
+
+        h2:hover {
+            font-style: italic;
+        }
+
+        h3 {
+            margin: var(--grand) 0 var(--petit);
+        }
+
+        mg {
+          margin: 0px var(--moyen);
+          --grand: 15px;
+
+          font-weight: bold;
+          font-style: normal;
+        }
+
+        mg:hover {
+          font-style: italic;
+        }
+
+        mg a:hover, .button_toggle:hover{
+          border-bottom: 2px dotted;
+        }
+
+        .button-alike {
+            display: inline-block;
+            width: var(--sq);
+            height: var(--sq);
+            --sq: 30px;
+            border: 1px solid;
+            border-radius: 50%;
+
+            font-size: 18px;
+            text-align: center;
+        }
+
+    </style>
+
+
+
+
+    <!-------------------- CSS STYLE IMPORT : PAGES -------------------->
+    <style>
+
+            .bp_element {
+                width: var(--width-element-section);
+                height: auto;
+                background: var(--background-elements);
+                margin-bottom: var(--margin-element-section);
+                margin-right: var(--margin-element-section);
+                position: relative;
+                padding: var(--padding-element);
+
+                color: var(--color-elements);
+            }
+
+            .bp_element a {
+                color: var(--color-links-elements);
+            }
+
+            .bp_element a:hover {
+                color: var(--color-links-hover-elements);
+            }
+
+            .bp_element > *:not(.nomargin) {
+                margin: 0 0 var(--padding-element) !important;
+            }
+
+            .name_element {
+                display: block;
+                background: var(--background-title-elements);
+                padding: var(--padding-name-element);
+
+                color: var(--color-title-elements);
+            }
+
+            .avatar_element {
+                width: 100%;
+                height: var(--height-avatar-element);
+                filter: grayscale(100%);
+            }
+
+            .infos_element {
+                max-height: var(--max-height-infos-element);
+                font-size: var(--font-size-infos-element);
+                line-height: var(--line-height-infos-element);
+            }
+
+            .links_element a.button-alike {
+                margin: 0 var(--padding-element);
+                --sq: var(--size-round-links-elements) !important;
+
+                color: var(--color-round-links-elements) !important;
+                font-size: var(--font-size-round-links-elements) !important;
+            }
+
+            .links_element a.button-alike:hover {
+                color: var(--color-round-hover-links-elements) !important;
+            }
+
+    </style>
+
+
+
+
+
+    <!-------------------- SCRIPT IMPORT JQUERY -------------------->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</head>
+
+
+
+
+
+
+<!-------------------- DÉBUT HTML -------------------->
+<body>
+    <aside id="self_presentation" class="flexrow">
+        <table class="no-extend"><tr>
+
+            <!----- TEXTE DU BORD EXTERNE SUPÉRIEUR :
+                    ajouter <td>...</td> pour rajouter
+                    des éléments et automatiquement
+                    les espacer. faites attention à
+                    ne pas trop en mettre sous peine
+                    qu'ils ne s'affichent pas si la
+                    fenêtre de l'utilisateur est trop
+                    petite ----->
+            <td><img src="https://i.pinimg.com/564x/57/59/4b/57594b652d989022454b6e49ec3d3e90.jpg" id="icon_presentation"></td>
+            <td><b id="pseudo_presentation">@nom du forum</b></td>
+            <td><a href="#top">( questions/requêtes )</a></td>
+
+
+            <!-- fin texte bord externe supérieur -->
+        </tr></table>
+        <fill></fill>
+    </aside>
+
+
+
+
+    <header class="flexcolumn">
+        <section class="no-extend shrinkable_nav">
+            <!----- TITRE DANS LA BARRE DE NAVIGATION ----->
+            <h1>faceclaim</h1>
+            <i>voir aussi</i>
+        </section>
+        <scroll>
+            <nav>
+                <ul id="link_first_nav" class="nobullet">
+
+                <!----- LIENS DE BARRE DE NAVIGATION :
+                        ajoutez/supprimez-en autant que voulu ----->
+
+                    <!-- début du lien en barre de navigation -->
+                    <li>
+                        <a class="link_first_nav" href="#top"><table class="auto"><tr><td><span class="visible_nav button-alike table_js">☖</span></td><td><mg class="shrinkable_nav">accueil</mg></td></tr></table></a>
+                    </li>
+                    <!-- fin du lien -->
+
+                    <!-- début du lien en barre de navigation -->
+                    <li>
+                        <a class="link_first_nav" href="#top"><table class="auto"><tr><td><span class="visible_nav button-alike table_js">✑</span></td><td><mg class="shrinkable_nav">contexte</mg></td></tr></table></a>
+                    </li>
+                    <!-- fin du lien -->
+
+                    <!-- début du lien en barre de navigation -->
+                    <li>
+                        <a class="link_first_nav" href="#top"><table class="auto"><tr><td><span class="visible_nav button-alike table_js">✉</span></td><td><mg class="shrinkable_nav">règlement</mg></td></tr></table></a>
+                    </li>
+                    <!-- fin du lien -->
+
+                    <!-- début du lien en barre de navigation -->
+                    <li>
+                        <a class="link_first_nav" href="#top"><table class="auto"><tr><td><span class="visible_nav button-alike table_js">☾</span></td><td><mg class="shrinkable_nav">groupes</mg></td></tr></table></a>
+                    </li>
+                    <!-- fin du lien -->
+
+                    <!-- début du lien en barre de navigation -->
+                    <li>
+                        <a class="link_first_nav" href="#top"><table class="auto"><tr><td><span class="visible_nav button-alike table_js">❄</span></td><td><mg class="shrinkable_nav">présentations</mg></td></tr></table></a>
+                    </li>
+                    <!-- fin du lien -->
+                </ul>
+            </nav>
+        </scroll>
+    </header>
+
+    <main>
+        <section id="inner_main">
+            <section class="no-extend" id="item_container">
+                <scroll>
+                    <!----- TITRE DU BLOC DES FILTRES ----->
+                    <h2 class="title_filters">filtrer</h2>
+
+
+
+
+                    <!----- FILTRES DES GROUPES
+                            EXPLICATIONS ET NOTES D'UTILISATION :
+
+                            chaque groupe de filtres (genre, origines,...)
+                            doit avoir un nom de groupe différent !!!
+                            ( <u... data-filter-group="nom_technique_groupe"> )
+                            indiquez la classe "exclusive" pour <ul>
+                            si vous voulez que les filtres soient exclusifs
+                            (comme pour le filtre par défaut "gender"
+                            dont on ne peut sélectionner qu'un filtre
+                            à la fois, alors que les autres sont cumulables).
+
+                            après, vous définissez les filtres
+                            disponibles pour le groupe en définissant son .nom
+                            (sans espace ni accent et avec le point devant !!)
+                            dans son attribut data-filter-value :
+                            <li><a href="#" data-filter-value=".nom-filtre">...
+
+                            plus loin dans le code,
+                            les éléments portant ces filtres auront
+                            des classes correspondant au .nom des filtres
+                            (mais sans le point devant), cumulables.
+                            par exemple un monsieur john doe d'origines
+                            françaises et japonaises aura les classes :
+                            <div class="element_section m white asian">
+
+                            parce que john doe, pour le groupe "genders",
+                            correspond au filtre .m de ceux définis
+                            (.f, .m, et .nb : non cumulables car
+                            groupe exclusif)
+
+                            et quepour le groupe "origins" il correspond
+                            à .white et .asian (cumulables car non
+                            exclusifs)
+
+                            (element_section étant une classe commune
+                            à tous les blocs d'éléments, à ne surtout
+                            pas modifier ! mais vous pouvez rajouter
+                            d'autres classes si voulu).
+
+                            vous n'êtes pas obligé.e de préciser
+                            pour chaque élément à quel filtre il
+                            appartient (par exemple vous pouvez
+                            ne rien indiquer sur le statut, si indéfini)
+                            il apparaîtra avec le filtre "tout" sélectionné.
+
+                            observez les exemples si ce n'est pas clair,
+                            vous vous y retrouverez sûrement mieux.
+                            je vous renvoie au billet du.de la créateurice
+                            de la fonction de filtrage sinon :
+                            https://magnusthemes.tumblr.com/post/171696773190/isotope-combination-filtering
+                            ----->
+
+
+
+
+
+                    <!----- FILTRE DU GROUPE // GENDERS ----->
+                    <ul class="filter option-set nobullet exclusive" data-filter-group="genders">
+                        <li><h3 class="name_filters">identité de genre</h3></li>
+                        <li><a href="#" data-filter-value="" class="selected">tout</a></li>
+                        <li><a href="#" data-filter-value=".f">féminin</a></li>
+                        <li><a href="#" data-filter-value=".m">masculin</a></li>
+                        <li><a href="#" data-filter-value=".nb">non-binaire</a></li>
+                    </ul>
+
+
+
+
+
+                    <!----- FILTER GROUP // ORIGINS ----->
+                    <ul class="filter option-set nobullet" data-filter-group="origins">
+                        <li><h3 class="name_filters">origines</h3></li>
+                        <li><a href="#" data-filter-value="" class="selected">tout</a></li>
+                        <li><a href="#" data-filter-value=".white">blanches</a></li>
+                        <li><a href="#" data-filter-value=".black">noires</a></li>
+                        <li><a href="#" data-filter-value=".native">natives</a></li>
+                        <li><a href="#" data-filter-value=".asian">asiatiques</a></li>
+                        <li><a href="#" data-filter-value=".latinx">latinx</a></li>
+                        <li><a href="#" data-filter-value=".arab">arabs</a></li>
+                        <li><a href="#" data-filter-value=".polynesian">polynésiennes</a></li>
+                    </ul>
+
+
+
+
+
+                    <!----- FILTER GROUP // CAREER ----->
+                    <ul class="filter option-set nobullet" data-filter-group="career">
+                        <li><h3 class="name_filters">carrière</h3></li>
+                        <li><a href="#" data-filter-value="" class="selected">tout</a></li>
+                        <li><a href="#" data-filter-value=".art-medias">art - médias</a></li>
+                        <li><a href="#" data-filter-value=".commerce-finances">commerce - immobilier - finances</a></li>
+                        <li><a href="#" data-filter-value=".crime-securite">crime - sécurité</a></li>
+                        <li><a href="#" data-filter-value=".droit-politique">droit - politique</a></li>
+                        <li><a href="#" data-filter-value=".education">éducation - étudiant.e.s</a></li>
+                        <li><a href="#" data-filter-value=".restauration">restauration - hôtellerie</a></li>
+                        <li><a href="#" data-filter-value=".sciences-sante">sciences - santé</a></li>
+                        <li><a href="#" data-filter-value=".sport">sport</a></li>
+                        <li><a href="#" data-filter-value=".nuit">monde de la nuit</a></li>
+                        <li><a href="#" data-filter-value=".autres-job">autres-jobs</a></li>
+                        <li><a href="#" data-filter-value=".sans-emploi">sans emploi</a></li>
+                    </ul>
+
+
+
+
+
+                    <!----- FILTER GROUP // ORIENTATION ----->
+                    <ul class="filter option-set nobullet" data-filter-group="orientation">
+                        <li><h3 class="name_filters">orientation</h3></li>
+                        <li><a href="#" data-filter-value="" class="selected">tout</a></li>
+                        <li><a href="#" data-filter-value=".straight">hétéro</a></li>
+                        <li><a href="#" data-filter-value=".gay">gay</a></li>
+                        <li><a href="#" data-filter-value=".bi-pan-omni">bi & pan & omni</a></li>
+                        <li><a href="#" data-filter-value=".aro-ace">aro & ace </a></li>
+                        <li><a href="#" data-filter-value=".other-orientation">autre</a></li>
+                    </ul>
+
+
+
+
+
+                    <!----- FILTER GROUP // STATUS ----->
+                    <ul class="filter option-set nobullet" data-filter-group="status">
+                        <li><h3 class="name_filters">statut marital</h3></li>
+                        <li><a href="#" data-filter-value="" class="selected">tout</a></li>
+                        <li><a href="#" data-filter-value=".single">célibataire</a></li>
+                        <li><a href="#" data-filter-value=".couple">en couple</a></li>
+                        <li><a href="#" data-filter-value=".engaged">fiancé·e</a></li>
+                        <li><a href="#" data-filter-value=".divorced">divorcé·e - veuf·ve</a></li>
+                        <li><a href="#" data-filter-value=".complicated-status">compliqué</a></li>
+                    </ul>
+
+
+
+
+
+                    <!----- FILTER GROUP // MONEY ----->
+                    <ul class="filter option-set nobullet" data-filter-group="money">
+                        <li><h3 class="name_filters">finances</h3></li>
+                        <li><a href="#" data-filter-value="" class="selected">tout</a></li>
+                        <li><a href="#" data-filter-value=".poor">pauvre</a></li>
+                        <li><a href="#" data-filter-value=".middle">classe moyenne</a></li>
+                        <li><a href="#" data-filter-value=".wealthy">riche</a></li>
+                        <li><a href="#" data-filter-value=".very-wealthy">très riche</a></li>
+                    </ul>
+                </scroll>
+            </section>
+            <section id="main_section">
+                <section id="filter_main">
+
+
+
+
+                <!----- SECTION DES ELEMENTS :
+                        copiez/collez et remplacez les informations
+                        de chaque élément, commentaires compris
+                        afin de vous y retrouver plus facilement.
+                        les div de class .element_section ont d'autres
+                        classes qui correspondent aux filtres,
+                        comme expliqué ci-dessus. ne modifiez pas
+                        ce div mais vous pouvez faire ce que vous voulez
+                        de ce qu'il y a dedans, ajouter des champs,
+                        en modifier ou changer complètement.
+                        vous pouvez supprimer le <scroll...</scroll>,
+                        l'image, le nom, tout en fait,
+                        ça fonctionnera parfaitement aussi.----->
+
+
+
+
+
+                    <!----- BEGIN ELEMENT ----->
+                        <div class="element_section f white black commerce-finances gay engaged middle">
+                            <div class="bp_element">
+                                <mg class="name_element">prénom nom</mg>
+
+                                <img src="https://i.pinimg.com/564x/ef/48/cf/ef48cf96a7d0ea6dd66dbf3088d23ce7.jpg" class="avatar_element"/>
+
+                                <scroll class="infos_element">
+                                    <a href="#top">Blah blah blah</a>. Donec nec eleifend tellus. Integer euismod convallis urna, ut condimentum justo pretium ac. In hac habitasse platea dictumst. Proin blandit magna nec ex porttitor efficitur. Maecenas suscipit egestas dolor, at luctus eros imperdiet in. Vestibulum a venenatis diam. Pellentesque fermentum pulvinar metus, ac eleifend quam iaculis a. Quisque id arcu sit amet nibh aliquam viverra.
+                                </scroll>
+
+                                <div class="links_element nomargin center-align">
+                                    <a href="#top" class="button-alike table_js">☼</a><a href="#top" class="button-alike table_js">☏</a>
+                                </div>
+                            </div>
+                        </div>
+                    <!----- END ELEMENT ----->
+
+
+
+
+
+                    <!----- BEGIN ELEMENT ----->
+                        <div class="element_section asian art-medias straight single middle">
+                            <div class="bp_element">
+                                <mg class="name_element">prénom nom</mg>
+
+                                <img src="https://i.pinimg.com/564x/6a/1b/be/6a1bbe1d9637fa9b729dfa859003b37e.jpg" class="avatar_element"/>
+
+                                <scroll class="infos_element">
+                                    Donec nec eleifend tellus. Integer euismod convallis urna, ut condimentum justo pretium ac.
+                                </scroll>
+
+                                <div class="links_element nomargin center-align">
+                                    <a href="#top" class="button-alike table_js">☼</a><a href="#top" class="button-alike table_js">☏</a>
+                                </div>
+                            </div>
+                        </div>
+                    <!----- END ELEMENT ----->
+
+
+
+
+
+                    <!----- BEGIN ELEMENT ----->
+                        <div class="element_section nb native sport straight couple middle">
+                            <div class="bp_element">
+                                <mg class="name_element">prénom nom</mg>
+
+                                <img src="https://i.pinimg.com/564x/67/6b/ac/676bac91c32d885049ff946445c0b4af.jpg" class="avatar_element"/>
+
+                                <scroll class="infos_element">
+                                    Donec nec eleifend tellus. Integer euismod convallis urna, ut condimentum justo pretium ac. In hac habitasse platea dictumst. Proin blandit magna nec ex porttitor efficitur. Maecenas suscipit egestas dolor, at luctus eros imperdiet in. Vestibulum a venenatis diam. Pellentesque fermentum pulvinar metus, ac eleifend quam iaculis a. Quisque id arcu sit amet nibh aliquam viverra.
+                                </scroll>
+
+                                <div class="links_element nomargin center-align">
+                                    <a href="#top" class="button-alike table_js">☼</a><a href="#top" class="button-alike table_js">☏</a>
+                                </div>
+                            </div>
+                        </div>
+                    <!----- END ELEMENT ----->
+
+
+
+
+
+                    <!----- BEGIN ELEMENT ----->
+                        <div class="element_section m white education bi-pan-omni divorced poor">
+                            <div class="bp_element">
+                                <mg class="name_element">prénom nom</mg>
+
+                                <img src="https://i.pinimg.com/564x/60/b7/ba/60b7badbb597c360104f82362c3b2550.jpg" class="avatar_element"/>
+
+                                <scroll class="infos_element">
+                                    Donec nec eleifend tellus.
+                                </scroll>
+
+                                <div class="links_element nomargin center-align">
+                                    <a href="#top" class="button-alike table_js">☼</a><a href="#top" class="button-alike table_js">☏</a>
+                                </div>
+                            </div>
+                        </div>
+                    <!----- END ELEMENT ----->
+
+
+
+
+
+                    <!----- BEGIN ELEMENT ----->
+                        <div class="element_section m latinx droit-politique aro-ace single wealthy">
+                            <div class="bp_element">
+                                <mg class="name_element">prénom nom</mg>
+
+                                <img src="https://i.pinimg.com/564x/ba/4b/44/ba4b44b315a5d36fcb6ab41a851b7b88.jpg" class="avatar_element"/>
+
+                                <scroll class="infos_element">
+                                    Donec nec eleifend tellus. Integer euismod convallis urna, ut condimentum justo pretium ac. In hac habitasse platea dictumst. Proin blandit magna nec ex porttitor efficitur. Maecenas suscipit egestas dolor, at luctus eros imperdiet in. Vestibulum a venenatis diam.
+                                </scroll>
+
+                                <div class="links_element nomargin center-align">
+                                    <a href="#top" class="button-alike table_js">☼</a><a href="#top" class="button-alike table_js">☏</a>
+                                </div>
+                            </div>
+                        </div>
+                    <!----- END ELEMENT ----->
+
+
+
+
+
+                    <!----- BEGIN ELEMENT ----->
+                        <div class="element_section m arab nuit other-orientation fiance very wealthy">
+                            <div class="bp_element">
+                                <mg class="name_element">prénom nom</mg>
+
+                                <img src="https://i.pinimg.com/564x/a1/e4/40/a1e4407b4dd18e7d01642814208c9fbd.jpg" class="avatar_element"/>
+
+                                <scroll class="infos_element">
+                                    Donec nec eleifend tellus. Integer euismod convallis urna, ut condimentum justo pretium ac. In hac habitasse platea dictumst. Proin blandit magna nec ex porttitor efficitur. Maecenas suscipit egestas dolor, at luctus eros imperdiet in. Vestibulum a venenatis diam. Pellentesque fermentum pulvinar metus, ac eleifend quam iaculis a. Quisque id arcu sit amet nibh aliquam viverra. Integer euismod convallis urna, ut condimentum justo pretium ac. In hac habitasse platea dictumst. Proin blandit magna nec ex porttitor efficitur. Maecenas suscipit egestas dolor, at luctus eros imperdiet in. Vestibulum a venenatis diam. Pellentesque fermentum pulvinar metus, ac eleifend quam iaculis a. Quisque id arcu sit amet nibh aliquam viverra.
+                                </scroll>
+
+                                <div class="links_element nomargin center-align">
+                                    <a href="#top" class="button-alike table_js">☼</a><a href="#top" class="button-alike table_js">☏</a>
+                                </div>
+                            </div>
+                        </div>
+                    <!----- END ELEMENT ----->
+
+
+
+
+
+                    <!----- BEGIN ELEMENT ----->
+                        <div class="element_section f asian polynesian restauration bi-pan-omni complicated-status poor">
+                            <div class="bp_element">
+                                <mg class="name_element">prénom nom</mg>
+
+                                <img src="https://i.pinimg.com/564x/3b/c4/2a/3bc42ae1ea3951dc14c1f65be26d0a6d.jpg" class="avatar_element"/>
+
+                                <scroll class="infos_element">
+                                    Donec nec.
+                                </scroll>
+
+                                <div class="links_element nomargin center-align">
+                                    <a href="#top" class="button-alike table_js">☼</a><a href="#top" class="button-alike table_js">☏</a>
+                                </div>
+                            </div>
+                        </div>
+                    <!----- END ELEMENT ----->
+
+
+
+
+
+                    <!----- BEGIN ELEMENT ----->
+                        <div class="element_section nb white arab autres-job aro-ace single very-wealthy">
+                            <div class="bp_element">
+                                <mg class="name_element">prénom nom</mg>
+
+                                <img src="https://i.pinimg.com/564x/f2/29/c4/f229c4abf1b0fd2cb56ce4416ef37c74.jpg" class="avatar_element"/>
+
+                                <scroll class="infos_element">
+                                    Donec nec eleifend tellus. Integer euismod convallis urna, ut condimentum justo pretium ac. In hac habitasse platea dictumst. Proin blandit magna nec ex porttitor efficitur. Maecenas suscipit egestas dolor, at luctus eros imperdiet in. Vestibulum a venenatis diam. Pellentesque fermentum pulvinar metus, ac eleifend quam iaculis a. Quisque id arcu sit amet nibh aliquam viverra.
+                                </scroll>
+
+                                <div class="links_element nomargin center-align">
+                                    <a href="#top" class="button-alike table_js">☼</a><a href="#top" class="button-alike table_js">☏</a>
+                                </div>
+                            </div>
+                        </div>
+                    <!----- END ELEMENT ----->
+
+
+
+
+
+                    <!----- BEGIN ELEMENT ----->
+                        <div class="element_section f black asian sans-emploi straight engaged middle-class">
+                            <div class="bp_element">
+                                <mg class="name_element">prénom nom</mg>
+
+                                <img src="https://i.pinimg.com/564x/20/ca/6b/20ca6bf2f22ee2dba7712e5886af2b4d.jpg" class="avatar_element"/>
+
+                                <scroll class="infos_element">
+                                    Donec nec eleifend tellus. Integer euismod convallis urna, ut condimentum justo pretium ac.
+                                </scroll>
+
+                                <div class="links_element nomargin center-align">
+                                    <a href="#top" class="button-alike table_js">☼</a><a href="#top" class="button-alike table_js">☏</a>
+                                </div>
+                            </div>
+                        </div>
+                    <!----- END ELEMENT ----->
+
+
+
+
+
+                    <!----- BEGIN ELEMENT ----->
+                        <div class="element_section m asian art-medias gay divorced poor">
+                            <div class="bp_element">
+                                <mg class="name_element">prénom nom</mg>
+
+                                <img src="https://i.pinimg.com/564x/18/cc/98/18cc984576dc9cf31682766a55264d2b.jpg" class="avatar_element"/>
+
+                                <scroll class="infos_element">
+                                    Donec nec eleifend tellus. Integer euismod convallis urna, ut condimentum justo pretium ac. In hac habitasse platea dictumst. Proin blandit magna nec ex porttitor efficitur. Maecenas suscipit egestas dolor, at luctus eros imperdiet in.
+                                </scroll>
+
+                                <div class="links_element nomargin center-align">
+                                    <a href="#top" class="button-alike table_js">☼</a><a href="#top" class="button-alike table_js">☏</a>
+                                </div>
+                            </div>
+                        </div>
+                    <!----- END ELEMENT ----->
+                </section>
+            </section>
+
+        </section>
+    </main>
+
+    <footer class="flexrow">
+        <table class="no-extend"><tr><td>
+            <a href="https://magnusthemes.tumblr.com/post/171696773190/isotope-combination-filtering" target="_blank" id="magnus_credits">(c) filtres par magnus themes</a>
+        </td></tr></table>
+        <fill></fill>
+        <table class="no-extend"><tr><td>
+            <a href="https://poesiescendrees.tumblr.com/" target="_blank"><mg class="nomargin" id="credits">(c) cendres.</mg></a>
+        </td></tr></table>
+    </footer>
+
+
+
+    <!-------------------- SCRIPT IMPORT :
+                           NE RIEN TOUCHER DE CI-APRÈS
+    -------------------->
+    <script>$('.table_js').wrapInner('<table><tr><td></table></tr></td>');</script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://static.tumblr.com/p0knose/FpAp5c11c/magnusthemes.combofilters.js"></script>
+
+
+    <!--https://magnusthemes.tumblr.com/post/171696773190/isotope-combination-filtering-->
+    <script>
+$(document).ready(function() {
+ var $container = $("#filter_main"); // the container with all the elements to filter inside
+ var filters = {}; //should be outside the scope of the filtering function
+ /* --- read the documentation on isotope.metafizzy.co for more options --- */
+ var $grid = $container.isotope({
+   itemSelector: ".element_section", // the elements to filter
+   percentPosition: false // put true if you use percentage widths, otherwise put false
+ });
+ $(".option-set a").click(function(e) {
+   var $this = $(this); // cache the clicked link
+   var filterAttr = "data-filter-value";
+   var filterValue = $this.attr(filterAttr); // cache the filter
+   var $optionSet = $this.parents(".option-set"); // cache the parent element
+   var group = $optionSet.attr("data-filter-group"); // cache the parent filter group
+   var filterGroup = filters[group];
+   if (!filterGroup) {
+     filterGroup = filters[group] = [];
+   }
+   var $selectAll = $optionSet.find('a['+filterAttr+'=""]'); // the 'select all' button in the current group
+   var activeClass = "selected", // the class for active links
+     exclClass = "exclusive"; // the class for exclusive groups
+ comboFiltering($this,filters,filterAttr,filterValue,$optionSet,group,$selectAll,activeClass,exclClass);
+   var comboFilter = getComboFilter(filters);
+   $grid.isotope({
+     filter: comboFilter
+   });
+   $this.toggleClass(activeClass);
+   e.preventDefault();
+ });
+});
+</script>
+</body>
+</html>
