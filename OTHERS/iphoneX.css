@@ -22,6 +22,10 @@
   --margin: 3px;
 }
 
+.bp_ipx, .bp_ipx * {
+    transition-duration: 0s;
+}
+
 .heure_ipx{
   width: 28px;
   height: 10px;
